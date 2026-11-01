@@ -19,7 +19,7 @@ const OFERTA = {
   // Valores EXIBIDOS na página. O valor COBRADO fica em api/_oferta.js: mantenha os dois iguais.
   precoDe: "R$ 47,00",                  // deixe "" para não mostrar o preço riscado
   precoPor: "R$ 19,90",
-  parcelamento: "ou até 3x no cartão",  // deixe "" para esconder (as parcelas exatas aparecem no checkout)
+  parcelamento: "",                     // deixe "" para esconder (o checkout aceita só Pix)
   garantiaDias: 7,
   totalPaginas: 37,
 

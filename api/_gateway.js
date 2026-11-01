@@ -7,7 +7,6 @@
   Variáveis de ambiente (Vercel > Settings > Environment Variables):
     GATEWAY_API_URL      endereço base da API (ex.: o que a BuckPay informar)
     GATEWAY_SECRET_KEY   chave SECRETA da conta. Nunca no código nem no navegador.
-    GATEWAY_PUBLIC_KEY   chave pública, se a BuckPay usar uma para o cartão no navegador
     GATEWAY_WEBHOOK_SECRET  segredo para validar as notificações, se houver
 
   Sem GATEWAY_SECRET_KEY o checkout roda em MODO DEMONSTRAÇÃO (nada é cobrado).
@@ -70,25 +69,6 @@ async function criarPix({ valor, descricao, cliente, expiraEm, urlNotificacao, m
   };
 }
 
-/* Cobra no cartão a partir de um TOKEN gerado no navegador pelo script da BuckPay
-   (o número do cartão nunca passa pelo nosso servidor). Devolve { id, status, motivo } */
-async function criarCartao({ valor, descricao, cliente, tokenCartao, parcelas, urlNotificacao, metadados, idempotencia }) {
-  // TODO BUCKPAY: endpoint e campos do pagamento com cartão.
-  const r = await chamar("/card", {
-    method: "POST", idempotencia,
-    corpo: {
-      amount: Math.round(valor * 100),
-      description: descricao,
-      card_token: tokenCartao,
-      installments: parcelas,
-      postback_url: urlNotificacao,
-      customer: { name: cliente.nome, email: cliente.email, document: cliente.cpf, phone: cliente.telefone },
-      metadata: metadados
-    }
-  });
-  return { id: String(r.id), status: traduzirStatus(r.status), motivo: r.refuse_reason || r.status_reason || "" };
-}
-
 /* Consulta um pagamento. Devolve { id, status, email } */
 async function consultar(id) {
   // TODO BUCKPAY: endpoint de consulta.
@@ -110,4 +90,4 @@ function lerNotificacao(req, corpo) {
   return String((d && d.id) || "");
 }
 
-module.exports = { modoDemo, criarPix, criarCartao, consultar, lerNotificacao, publicKey: () => process.env.GATEWAY_PUBLIC_KEY || "" };
+module.exports = { modoDemo, criarPix, consultar, lerNotificacao };

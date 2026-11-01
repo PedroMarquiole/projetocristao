@@ -20,7 +20,8 @@ module.exports = async (req, res) => {
          1. Gravar p.email numa lista de compradoras (ex.: Supabase).
          2. Enviar o e-mail de boas-vindas com o link da área de membros (ex.: Resend).
          3. A área de membros consulta essa lista no login.
-         4. Avisar a Utmify da venda (as UTMs vão em metadados). */
+         4. Liberar também os extras comprados (lista em metadados.extras, ex.: "oracoes,datas").
+         5. Avisar a Utmify da venda (as UTMs vão em metadados). */
     }
     return json(res, 200, { ok: true });
   } catch (e) {

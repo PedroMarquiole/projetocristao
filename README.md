@@ -5,7 +5,7 @@ Um único projeto, publicado na Vercel:
 | Endereço | O que é |
 |---|---|
 | `/` | Página de vendas |
-| `/checkout.html` | Checkout próprio (Pix e cartão), com as funções de servidor em `/api` |
+| `/checkout.html` | Checkout próprio (Pix), com as funções de servidor em `/api` |
 | `/obrigado.html` | Confirmação da compra |
 | `/area-de-membros/login.html` | Área de membros |
 
@@ -40,11 +40,12 @@ Os links "Já comprei" e "Área de membros" apontam para `../area-de-membros/log
 `js/demo-imagem-local.js` só é usado quando a página é aberta direto do computador (para a pintura funcionar no teste local).
 
 ## Checkout próprio (pagamento por API)
-- Páginas: `checkout.html` (Pix e cartão) e `obrigado.html`. Funções de servidor em `api/` (rodam na Vercel).
+- Páginas: `checkout.html` (só Pix) e `obrigado.html`. Funções de servidor em `api/` (rodam na Vercel).
 - **Preço cobrado:** `api/_oferta.js` (o navegador nunca define o valor). Mantenha igual ao `precoPor` de `js/config.js`.
-- **Empresa de pagamento (BuckPay):** preencha os pontos `TODO BUCKPAY` em `api/_gateway.js` (endereços e campos da API)
-  e em `js/checkout.js` (função `tokenizarCartao`, com o script oficial de cartão da BuckPay).
+- **Empresa de pagamento (BuckPay):** preencha os pontos `TODO BUCKPAY` em `api/_gateway.js` (endereços e campos da API).
+- **Ofertas extras (order bump):** em `api/_oferta.js` > `extras`. Só deixe `ativo: true` nos materiais que já existem.
+- **Depoimentos:** só reais, na lista `DEPOIMENTOS` de `js/config.js`. Aparecem na página de vendas e no checkout.
 - **Variáveis na Vercel** (Settings > Environment Variables): `GATEWAY_API_URL`, `GATEWAY_SECRET_KEY`,
-  `GATEWAY_PUBLIC_KEY` (se houver) e `GATEWAY_WEBHOOK_SECRET` (se houver). Sem a chave secreta, roda em modo demonstração.
+  `GATEWAY_WEBHOOK_SECRET` (se houver). Sem a chave secreta, roda em modo demonstração.
 - **Webhook:** cadastre `https://SEU-DOMINIO/api/webhook` no painel da BuckPay.
 - **Próximo passo:** liberar o acesso automaticamente quando o pagamento for aprovado (ver TODO em `api/webhook.js`).
