@@ -35,6 +35,15 @@
           "value": "noindex"
         }
       ]
+    },
+    {
+      "source": "/area-de-membros/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
     }
   ]
 }
