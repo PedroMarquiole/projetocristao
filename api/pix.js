@@ -8,6 +8,7 @@ module.exports = async (req, res) => {
   const corpo = await lerCorpo(req);
   const v = validarCliente(corpo.cliente);
   if (v.erro) return json(res, 400, { erro: v.erro });
+  // Tempo mostrado na tela. Confirme com a BuckPay quanto tempo o Pix vale de verdade.
   const expira = new Date(Date.now() + oferta.pixExpiraMin * 60000);
 
   // Total calculado no servidor: produto + extras válidos marcados (ids desconhecidos são ignorados).
@@ -23,12 +24,11 @@ module.exports = async (req, res) => {
   }
   try {
     const p = await gw.criarPix({
-      valor: total, descricao, cliente: v.cliente, expiraEm: expira,
-      urlNotificacao: urlBase(req) + "/api/webhook", metadados: { produto: oferta.produto, extras: extras.map((e) => e.id).join(","), ...limparUtms(corpo.utms) },
-      idempotencia: String(corpo.chave || "").slice(0, 64) || undefined
+      valor: total, nomeProduto: descricao, cliente: v.cliente, utms: limparUtms(corpo.utms),
+      urlNotificacao: gw.urlWebhook(urlBase(req)), slugOferta: process.env.GATEWAY_OFFER_SLUG || oferta.slugBuckPay
     });
     if (!p.copiaECola) throw new Error("resposta sem código Pix");
-    return json(res, 200, { ...p, expiraEm: expira.toISOString(), total, extras: extras.map((e) => e.id) });
+    return json(res, 200, { id: p.id, status: p.status, copiaECola: p.copiaECola, qrBase64: p.qrBase64, expiraEm: expira.toISOString(), total, extras: extras.map((e) => e.id) });
   } catch (e) {
     console.error("Erro ao criar Pix:", e.message, JSON.stringify(e.detalhe || {}));
     return json(res, 502, { erro: "Não foi possível gerar o Pix agora. Tente de novo em instantes." });

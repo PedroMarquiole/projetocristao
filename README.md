@@ -39,16 +39,26 @@ As UTMs da URL (utm_*, src, sck, fbclid...) já são repassadas hoje para o link
 Os links "Já comprei" e "Área de membros" apontam para `../area-de-membros/login.html` (mude em `OFERTA.areaMembrosUrl`).
 `js/demo-imagem-local.js` só é usado quando a página é aberta direto do computador (para a pintura funcionar no teste local).
 
-## Checkout próprio (pagamento por API)
+## Checkout próprio (Pix via BuckPay)
 - Páginas: `checkout.html` (só Pix) e `obrigado.html`. Funções de servidor em `api/` (rodam na Vercel).
+- **Integração:** `api/_gateway.js` (BuckPay: `POST /v1/transactions`, consulta por `external_id`, webhook).
+  Documentação: https://docs.buckpay.com.br/docs
 - **Preço cobrado:** `api/_oferta.js` (o navegador nunca define o valor). Mantenha igual ao `precoPor` de `js/config.js`.
-- **Empresa de pagamento (BuckPay):** preencha os pontos `TODO BUCKPAY` em `api/_gateway.js` (endereços e campos da API).
+  O valor deve ficar entre R$ 6,00 e R$ 3.000,00 (limites da BuckPay).
 - **Ofertas extras (order bump):** em `api/_oferta.js` > `extras`. Só deixe `ativo: true` nos materiais que já existem.
-- **Depoimentos:** só reais, na lista `DEPOIMENTOS` de `js/config.js`. Aparecem na página de vendas e no checkout.
-- **Variáveis na Vercel** (Settings > Environment Variables): `GATEWAY_API_URL`, `GATEWAY_SECRET_KEY`,
-  `GATEWAY_WEBHOOK_SECRET` (se houver). Sem a chave secreta, roda em modo demonstração.
-- **Webhook:** cadastre `https://SEU-DOMINIO/api/webhook` no painel da BuckPay.
-- **Próximo passo:** liberar o acesso automaticamente quando o pagamento for aprovado (ver TODO em `api/webhook.js`).
+- **Depoimentos:** só reais, na lista `DEPOIMENTOS` de `js/config.js`.
+
+### Variáveis na Vercel (Settings > Environment Variables)
+Veja `.env.example`. As obrigatórias para cobrar de verdade: `GATEWAY_SECRET_KEY` e `GATEWAY_USER_AGENT`.
+Recomendadas: `GATEWAY_WEBHOOK_TOKEN` e `GATEWAY_OFFER_SLUG`. Sem `GATEWAY_SECRET_KEY` o checkout roda em modo demonstração.
+
+### Webhook
+A BuckPay envia os eventos `transaction.created` e `transaction.processed` para `https://SEU-DOMINIO/api/webhook?t=<GATEWAY_WEBHOOK_TOKEN>`.
+Esse endereço é enviado a cada cobrança (campo `postbackUrl`). Como a BuckPay não assina as notificações, o webhook exige a senha na URL
+e confirma a situação consultando a API.
+
+### Próximo passo
+Liberar o acesso automaticamente quando o pagamento for aprovado (ver TODO em `api/webhook.js`).
 
 ## Antes de cada envio
 Rode `python3 versionar.py`. Ele atualiza a versão dos arquivos CSS/JS nas páginas, para quem já visitou o site

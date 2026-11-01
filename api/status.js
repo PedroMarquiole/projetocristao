@@ -4,7 +4,7 @@ const { json } = require("./_util");
 
 module.exports = async (req, res) => {
   const id = String((req.query && req.query.id) || new URL(req.url, "http://x").searchParams.get("id") || "").slice(0, 80);
-  if (!id) return json(res, 400, { erro: "Informe o id." });
+  if (!/^[A-Za-z0-9_-]{1,80}$/.test(id)) return json(res, 400, { erro: "Informe um id válido." });
   if (id.startsWith("demo-")) return json(res, 200, { demo: true, status: Date.now() - (Number(id.slice(5)) || 0) > 12000 ? "approved" : "pending" });
   if (gw.modoDemo()) return json(res, 404, { erro: "Pagamento não encontrado." });
   try { const p = await gw.consultar(id); return json(res, 200, { status: p.status }); }
