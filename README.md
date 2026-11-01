@@ -22,7 +22,7 @@ em qualquer hospedagem estática com CDN (Netlify, Vercel, Cloudflare Pages, Hos
 - `checkoutUrl`: link do seu checkout. Enquanto for o de exemplo, aparece uma faixa vermelha de aviso.
 - `precoDe`, `precoPor`, `parcelamento`, `garantiaDias`, `totalPaginas`.
 - `PRODUTO.nome`: troque também no `<title>` e nas tags `og:` do `index.html` (o WhatsApp não roda JavaScript).
-- `og:image`: quando tiver o domínio, use o endereço completo da imagem (`https://.../img/compartilhar.jpg`).
+- Endereço do site (`og:url`, `canonical`, `og:image`) em `index.html`: hoje `https://projetocristao-dusky.vercel.app`. Se trocar de domínio, atualize.
 - Rodapé e `privacidade.html` / `termos.html`: preencha e-mail de suporte e CPF/CNPJ (exigido nos anúncios).
 - `DEPOIMENTOS`: só depoimentos reais. A seção aparece sozinha quando houver pelo menos um.
 
