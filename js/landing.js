@@ -275,27 +275,6 @@
     mover();
   }
 
-  /* ---------- Abas (antes e depois / papel ou celular / dia a dia) ---------- */
-  function iniciarAbas() {
-    var bloco = $("#abas");
-    if (!bloco) return;
-    var abas = $$(".aba", bloco), paineis = $$(".aba-painel", bloco);
-    function ir(i, foco) {
-      abas.forEach(function (a, k) { a.setAttribute("aria-selected", String(k === i)); a.tabIndex = k === i ? 0 : -1; });
-      paineis.forEach(function (p, k) { p.hidden = k !== i; });
-      if (foco) abas[i].focus();
-    }
-    abas.forEach(function (a, i) {
-      a.addEventListener("click", function () { ir(i); });
-      a.addEventListener("keydown", function (e) {
-        if (e.key === "ArrowRight") { e.preventDefault(); ir((i + 1) % abas.length, true); }
-        if (e.key === "ArrowLeft") { e.preventDefault(); ir((i + abas.length - 1) % abas.length, true); }
-      });
-    });
-    bloco.classList.add("js-abas");
-    ir(0);
-  }
-
   /* ---------- Preço por desenho (conta feita com os valores do config.js) ---------- */
   function precoPorDesenho() {
     var el = $("#preco-unidade");
@@ -317,7 +296,6 @@
     iniciarDepoimentos();
     iniciarBarra();
     iniciarComparar();
-    iniciarAbas();
     precoPorDesenho();
   });
 })();
