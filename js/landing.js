@@ -282,11 +282,15 @@
     var url;
     if (alvo.charAt(0) === "#") url = location.pathname + location.search + alvo;
     else url = alvo.trim() + (alvo.indexOf("?") > 0 ? "&" : "?") + location.search.replace("?", "");
-    history.pushState({}, "", location.href);
-    history.pushState({}, "", location.href);
-    history.pushState({}, "", location.href);
-    window.addEventListener("popstate", function () {
-      setTimeout(function () { location.href = url; }, 1);
+    // As entradas extras do histórico levam uma marca. Só um "Voltar" de verdade (que cai numa delas)
+    // aciona o redirecionamento. Sem isso, qualquer clique em link "#oferta" disparava o evento
+    // popstate e o redirecionamento entrava em loop, travando a página.
+    var MARCA = "backRedirect", indo = false;
+    for (var n = 0; n < 3; n++) history.pushState({ marca: MARCA }, "", location.href);
+    window.addEventListener("popstate", function (e) {
+      if (indo || !e.state || e.state.marca !== MARCA) return;
+      indo = true;
+      setTimeout(function () { location.href = url; indo = false; }, 1);
     });
   }
 
