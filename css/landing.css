@@ -565,3 +565,8 @@ a, button, summary, input, .giz, canvas { touch-action: manipulation; -webkit-ta
 .oferta .confianca { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; font-size: .82rem; line-height: 1.2; text-align: center; }
 .oferta .confianca li { flex-direction: column; justify-content: flex-start; gap: 4px; }
 .oferta .confianca .icone { width: 1.6em; height: 1.6em; }
+
+/* Dica "Toque para pintar" menor no celular */
+.demo__dica { gap: 6px; padding: 6px 12px; font-size: .8rem; opacity: .92; }
+.demo__dica .icone { width: 1.1em; height: 1.1em; }
+.demo__dica { white-space: nowrap; width: max-content; line-height: 1.2; top: 52%; }
