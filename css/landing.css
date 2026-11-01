@@ -303,9 +303,6 @@ a, button, summary, input, .giz, canvas { touch-action: manipulation; -webkit-ta
   transform: translateY(110%); transition: transform .25s ease;
 }
 .barra.-visivel { transform: translateY(0); }
-.barra__preco { line-height: 1.1; }
-.barra__preco b { display: block; font-family: var(--fonte-titulo); font-size: 1.5rem; color: var(--verde); }
-.barra__preco span { font-size: .875rem; color: var(--texto-suave); }
 .barra .btn { min-height: 50px; font-size: 1.1rem; padding: 0 20px; }
 
 
