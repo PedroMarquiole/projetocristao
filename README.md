@@ -49,3 +49,7 @@ Os links "Já comprei" e "Área de membros" apontam para `../area-de-membros/log
   `GATEWAY_WEBHOOK_SECRET` (se houver). Sem a chave secreta, roda em modo demonstração.
 - **Webhook:** cadastre `https://SEU-DOMINIO/api/webhook` no painel da BuckPay.
 - **Próximo passo:** liberar o acesso automaticamente quando o pagamento for aprovado (ver TODO em `api/webhook.js`).
+
+## Antes de cada envio
+Rode `python3 versionar.py`. Ele atualiza a versão dos arquivos CSS/JS nas páginas, para quem já visitou o site
+receber a versão nova na hora, sem ficar preso no cache do celular.
