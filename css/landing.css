@@ -522,3 +522,24 @@ a, button, summary, input, .giz, canvas { touch-action: manipulation; -webkit-ta
 @media (min-width: 760px) { .ritual { grid-template-columns: repeat(4, 1fr); } }
 .historias .jogo-img { margin-top: 22px; }
 .historias .jogo-img { background: var(--branco); }
+
+/* ---------- Histórias: versão mais viva ---------- */
+.historias { background: var(--roxo); border-block: var(--borda); }
+.historias .secao__titulo { color: #fff; }
+.historias .secao__intro { color: #F3ECFF; }
+.historias .secao__titulo::after, .historias .secao__titulo span { color: var(--sol); }
+.historias .livro { box-shadow: 6px 7px 0 var(--sol); }
+.historias .ritual li:nth-child(1) { background: var(--azul-claro); }
+.historias .ritual li:nth-child(2) { background: var(--vermelho-claro); }
+.historias .ritual li:nth-child(3) { background: var(--sol); }
+.historias .ritual li:nth-child(4) { background: var(--verde-claro); }
+.historias .ritual li:nth-child(3) span { color: var(--texto); }
+.historias .ritual li { box-shadow: 3px 4px 0 rgba(0, 0, 0, .25); }
+.historias .jogo-img { border-color: var(--sol); box-shadow: 6px 7px 0 var(--sol); border-width: 3px; }
+.historias .historias__lista { color: #fff; }
+.historias .historias__lista b { color: var(--sol); }
+.historias .historias__lista .icone { color: var(--sol); }
+.lista-check { display: grid; gap: 12px; margin-top: 18px; }
+.lista-check li { display: flex; gap: 10px; align-items: flex-start; }
+.lista-check .icone { flex: none; color: var(--verde); margin-top: 3px; stroke-width: 3; }
+.historias .historias__lista .icone { color: var(--sol); }
