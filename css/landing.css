@@ -537,3 +537,42 @@ a, button, summary, input, .giz, canvas { touch-action: manipulation; -webkit-ta
 .lista-check { display: grid; gap: 12px; margin-top: 18px; }
 .lista-check li { display: flex; gap: 10px; align-items: flex-start; }
 .lista-check .icone { flex: none; color: var(--verde); margin-top: 3px; stroke-width: 3; }
+
+/* ---------- Abas ---------- */
+.abas { display: none; }
+.js-abas .abas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 6px; margin-bottom: 26px; background: var(--branco); border: var(--borda); border-radius: 999px; }
+.aba { min-height: 48px; padding: 6px 8px; border: 0; border-radius: 999px; background: transparent; color: var(--texto); font: 800 .95rem/1.15 var(--fonte-titulo); cursor: pointer; }
+.aba[aria-selected="true"] { background: var(--sol); box-shadow: inset 0 0 0 2px var(--texto); }
+.aba:focus-visible { outline: 3px solid var(--azul); outline-offset: 2px; }
+.aba-painel + .aba-painel { margin-top: 56px; }
+.js-abas .aba-painel + .aba-painel { margin-top: 0; }
+.aba-painel[hidden] { display: none; }
+@media (min-width: 760px) { .abas { max-width: 560px; margin-inline: auto; } .aba { font-size: 1.05rem; } }
+
+/* ---------- Oferta: preço e confiança ---------- */
+.preco { gap: 6px; padding: 18px 12px 16px; background: var(--creme); border: 2px dashed rgba(58, 42, 30, .35); border-radius: 18px; }
+.preco__de { font-size: 1.35rem; font-weight: 700; text-decoration-thickness: 3px; text-decoration-color: var(--vermelho); }
+.preco__por { font-size: clamp(3.6rem, 18vw, 5.2rem); }
+.preco__selo { justify-self: center; padding: 4px 14px; border-radius: 999px; background: var(--verde); color: #fff; font-weight: 800; font-size: .9rem; }
+.confianca { margin-top: 14px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 16px; font-size: .9rem; font-weight: 700; color: var(--texto-suave); }
+.confianca li { display: inline-flex; align-items: center; gap: 6px; }
+.confianca .icone { width: 1.15em; height: 1.15em; color: var(--verde); }
+.oferta .selo { padding: 16px; background: var(--verde-claro); border: 2px solid var(--verde); border-radius: 18px; }
+
+/* ---------- Depoimentos reservados (ativar tirando o comentário no HTML) ---------- */
+.depo-grade { display: grid; gap: 16px; grid-template-columns: 1fr; }
+.depo-card { display: grid; gap: 10px; padding: 14px; background: var(--branco); border: var(--borda); border-radius: var(--raio); box-shadow: var(--sombra); }
+.depo-card img { width: 100%; height: auto; border: 2px solid var(--texto); border-radius: 12px; background: #fff; }
+.depo-card blockquote { margin: 0; font-size: 1.05rem; line-height: 1.5; }
+.depo-card cite { font-style: normal; font-weight: 800; color: var(--texto-suave); }
+@media (min-width: 760px) { .depo-grade { grid-template-columns: repeat(3, 1fr); } }
+
+/* ---------- Botões: mesmo estilo e toque confortável ---------- */
+.btn--comprar { min-height: 56px; }
+@media (max-width: 768px) {
+  .btn--comprar { width: 100%; }
+  .hero__cta .btn, .fechamento .btn { width: 100%; }
+}
+.oferta .confianca { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; font-size: .82rem; line-height: 1.2; text-align: center; }
+.oferta .confianca li { flex-direction: column; justify-content: flex-start; gap: 4px; }
+.oferta .confianca .icone { width: 1.6em; height: 1.6em; }
