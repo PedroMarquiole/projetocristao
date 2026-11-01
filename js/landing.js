@@ -296,6 +296,21 @@
     ir(0);
   }
 
+  /* ---------- Back redirect (código da Utmify, adaptado): "Voltar" leva ao destino do config.js ---------- */
+  function iniciarBackRedirect() {
+    var alvo = (typeof RASTREIO !== "undefined" && RASTREIO.backRedirectUrl) || "";
+    if (!alvo) return;
+    var url;
+    if (alvo.charAt(0) === "#") url = location.pathname + location.search + alvo;
+    else url = alvo.trim() + (alvo.indexOf("?") > 0 ? "&" : "?") + location.search.replace("?", "");
+    history.pushState({}, "", location.href);
+    history.pushState({}, "", location.href);
+    history.pushState({}, "", location.href);
+    window.addEventListener("popstate", function () {
+      setTimeout(function () { location.href = url; }, 1);
+    });
+  }
+
   /* ---------- Preço por desenho (conta feita com os valores do config.js) ---------- */
   function precoPorDesenho() {
     var el = $("#preco-unidade");
@@ -317,6 +332,7 @@
     iniciarDepoimentos();
     iniciarBarra();
     iniciarComparar();
+    iniciarBackRedirect();
     iniciarAbas();
     precoPorDesenho();
   });
