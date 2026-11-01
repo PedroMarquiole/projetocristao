@@ -498,3 +498,23 @@ a, button, summary, input, .giz, canvas { touch-action: manipulation; -webkit-ta
 }
 
 .oferta__lista .-bonus b { color: var(--roxo, #6A3FA0); }
+
+/* ---------- Bônus: demonstração do jogo da memória ---------- */
+.bonus-demo { position: relative; display: grid; grid-template-columns: 132px 1fr; gap: 14px; align-items: center; margin: 4px 0 18px; padding: 16px 14px 14px; background: #EEE8F7; border: var(--borda); border-radius: 18px; }
+.bonus-demo__selo { position: absolute; top: -13px; left: 14px; padding: 2px 12px; border-radius: 999px; background: #6A3FA0; color: #fff; font-weight: 800; font-size: .8rem; }
+.bonus-demo__grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+.mc { aspect-ratio: 1; display: grid; place-items: center; border: 2px solid var(--texto); border-radius: 8px; background: #fff; overflow: hidden; }
+.mc img { width: 100%; height: 100%; object-fit: contain; }
+.mc.-costas { background: #FFC933; }
+.mc.-costas img { width: 60%; height: auto; }
+.bonus-demo__texto { display: grid; gap: 2px; line-height: 1.35; }
+.bonus-demo__texto b { font-family: var(--fonte-titulo); font-size: 1.1rem; }
+.bonus-demo__texto span { font-size: .92rem; color: var(--texto-suave); }
+@media (max-width: 340px) { .bonus-demo { grid-template-columns: 1fr; } .bonus-demo__grade { max-width: 150px; } }
+
+.jogo-img { grid-column: 1 / -1; margin: 0; display: grid; gap: 12px; justify-items: center; text-align: center; padding: 18px 14px; background: #EEE8F7; border: var(--borda); border-radius: 18px; }
+.jogo-img__grade { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; width: 100%; max-width: 340px; }
+.jogo-img .mc { border-radius: 10px; }
+.mc.-par { border-color: var(--verde); box-shadow: 0 0 0 2px var(--verde); }
+.jogo-img figcaption { font-size: 1rem; line-height: 1.4; max-width: 46ch; }
+.jogo-img figcaption b { font-family: var(--fonte-titulo); color: #6A3FA0; font-size: 1.15rem; }
