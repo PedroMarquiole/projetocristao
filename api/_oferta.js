@@ -7,7 +7,8 @@ module.exports = {
   produto: "Jornada do Pequeno Discípulo",
   descricao: "Jornada pela Bíblia para colorir (acesso digital)",
   preco: 19.90,            // produto principal, em reais
-  pixExpiraMin: 30,        // validade do QR Code Pix, em minutos
+  pixExpiraMin: 30,        // tempo mostrado na tela para pagar (confirme com a BuckPay a validade real do Pix)
+  slugBuckPay: "",         // slug da oferta no painel da BuckPay (liga a venda à oferta e dispara automações)
 
   /* Ofertas extras do checkout (marcadas pela pessoa antes de gerar o Pix).
      ATENÇÃO: só deixe "ativo: true" nos extras que JÁ EXISTEM e serão entregues.
