@@ -9,7 +9,7 @@
   ============================================================
 */
 const PRODUTO = {
-  nome: "Nome do Produto",
-  nomeArquivo: "nome-do-produto", // usado em paths/ids (ex.: chaves do localStorage)
-  slogan: "Desenhos bíblicos para colorir em família"
+  nome: "Jornada do Pequeno Discípulo",
+  nomeArquivo: "jornada-do-pequeno-discipulo", // usado em paths/ids (ex.: chaves do localStorage)
+  slogan: ""                          // sem subtítulo (deixe "" para não mostrar)
 };

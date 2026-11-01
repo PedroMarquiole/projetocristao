@@ -4,7 +4,7 @@
   Ao mudar o preço principal, mude também o precoPor de js/config.js (que só exibe).
 */
 module.exports = {
-  produto: "Nome do Produto",
+  produto: "Jornada do Pequeno Discípulo",
   descricao: "Jornada pela Bíblia para colorir (acesso digital)",
   preco: 19.90,            // produto principal, em reais
   pixExpiraMin: 30,        // validade do QR Code Pix, em minutos

@@ -165,7 +165,7 @@
   fetch("api/config").then(function (r) { if (!r.ok) throw new Error(); return r.json(); }).then(aplicar).catch(function () {
     // Sem servidor (prévia ou arquivo local): demonstração no navegador, com os mesmos extras do servidor.
     demoLocal = true;
-    aplicar({ produto: "Nome do Produto", preco: 19.9, pixExpiraMin: 30, demo: true, extras: [
+    aplicar({ produto: "Jornada do Pequeno Discípulo", preco: 19.9, pixExpiraMin: 30, demo: true, extras: [
       { id: "oracoes", nome: "Orações para a Hora de Dormir", descricao: "30 cartões de oração ilustrados para imprimir e rezar com seu filho antes de dormir.", precoDe: 19.9, preco: 9.9 },
       { id: "versiculos", nome: "Versículos para Decorar", descricao: "Cartões com um versículo para cada página da jornada, para a criança aprender de cor.", precoDe: 17.9, preco: 7.9 },
       { id: "datas", nome: "Kit Datas Cristãs", descricao: "Desenhos especiais de Natal, Páscoa e Pentecostes para colorir em família.", precoDe: 24.9, preco: 12.9 }

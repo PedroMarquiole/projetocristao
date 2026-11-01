@@ -7,9 +7,9 @@
   troque lá também.
 */
 const PRODUTO = {
-  nome: "Nome do Produto",              // mesmo nome usado na área de membros
-  nomeArquivo: "nome-do-produto",
-  slogan: "Desenhos bíblicos para colorir em família"
+  nome: "Jornada do Pequeno Discípulo",              // mesmo nome usado na área de membros
+  nomeArquivo: "jornada-do-pequeno-discipulo",
+  slogan: ""                          // sem subtítulo (deixe "" para não mostrar)
 };
 
 const OFERTA = {

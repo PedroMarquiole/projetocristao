@@ -1,4 +1,4 @@
-# Bíblia para Colorir (nome provisório)
+# Jornada do Pequeno Discípulo
 
 Um único projeto, publicado na Vercel:
 
