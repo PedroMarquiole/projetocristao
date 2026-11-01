@@ -70,10 +70,13 @@
   function montarDepoimentos() {
     var d = window.DEPOIMENTOS || (typeof DEPOIMENTOS !== "undefined" ? DEPOIMENTOS : []);
     if (!Array.isArray(d) || !d.length) return;
-    $("#ck-depo-lista").innerHTML = d.slice(0, 3).map(function (x) {
+    var s = document.createElement("section");
+    s.className = "ck-depo"; s.setAttribute("aria-labelledby", "depo-titulo");
+    s.innerHTML = '<h2 id="depo-titulo">Quem já começou a jornada</h2><ul class="limpa ck-depo__lista">' + d.slice(0, 3).map(function (x) {
       return '<li><span class="ck-depo__estrelas" aria-label="5 estrelas">★★★★★</span><p>“' + esc(x.texto) + '”</p><cite>' + esc(x.nome) + (x.cidade ? ", " + esc(x.cidade) : "") + "</cite></li>";
-    }).join("");
-    $("#ck-depo").hidden = false;
+    }).join("") + "</ul>";
+    var ref = document.querySelector(".ck-garantia");
+    ref.parentNode.insertBefore(s, ref);
   }
 
   /* ---------- Comunicação com o servidor (ou demonstração local) ---------- */

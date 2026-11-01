@@ -212,18 +212,26 @@
     });
   }
 
-  /* ---------- Depoimentos reais (só se houver) ---------- */
+  /* ---------- Depoimentos reais (a seção só é criada se houver depoimentos em config.js) ---------- */
   function iniciarDepoimentos() {
-    var secao = $("#depoimentos");
-    if (!secao || !Array.isArray(DEPOIMENTOS) || !DEPOIMENTOS.length) return;
-    var lista = $("#depoimentos-lista");
+    if (typeof DEPOIMENTOS === "undefined" || !Array.isArray(DEPOIMENTOS) || !DEPOIMENTOS.length) return;
+    var oferta = $("#oferta");
+    if (!oferta) return;
+    var secao = document.createElement("section");
+    secao.className = "secao"; secao.id = "depoimentos"; secao.style.paddingTop = "0";
+    secao.setAttribute("aria-labelledby", "depo-titulo");
+    var cont = document.createElement("div"); cont.className = "container";
+    var h = document.createElement("h2"); h.className = "secao__titulo"; h.id = "depo-titulo"; h.textContent = "O que as famílias estão dizendo";
+    var ul = document.createElement("ul"); ul.className = "limpa depoimentos";
     DEPOIMENTOS.forEach(function (d) {
       var li = document.createElement("li"); li.className = "depoimento";
       var p = document.createElement("p"); p.textContent = "“" + d.texto + "”";
       var c = document.createElement("cite"); c.textContent = d.nome + (d.cidade ? ", " + d.cidade : "");
-      li.appendChild(p); li.appendChild(c); lista.appendChild(li);
+      li.appendChild(p); li.appendChild(c); ul.appendChild(li);
     });
-    secao.hidden = false;
+    cont.appendChild(h); cont.appendChild(ul); secao.appendChild(cont);
+    var antes = oferta.previousElementSibling;                    // a onda que vem antes da oferta
+    oferta.parentNode.insertBefore(secao, antes && antes.classList.contains("onda") ? antes : oferta);
   }
 
   /* ---------- Barra fixa de compra (celular) e evento ViewContent ---------- */
