@@ -117,7 +117,7 @@ def pagina_pdf(i, p):
         c.drawCentredString(W / 2, y - 4, ln); y -= 17
     c.setFont("Helvetica", 10); c.setLineWidth(1)
     c.drawString(40, 34, "Nome: ____________________________")
-    c.drawRightString(W - 40, 34, SLOGAN)
+    c.drawRightString(W - 40, 34, SLOGAN or NOME)
     c.showPage(); c.save()
 
 
@@ -147,15 +147,16 @@ def diploma():
     c.setLineWidth(2); c.setStrokeColor(MARROM); c.line(W / 2 - 220, H - 320, W / 2 + 220, H - 320)
     c.setFont("Helvetica", 10); c.drawCentredString(W / 2, H - 335, "(nome da criança)")
     c.setFont("Helvetica", 16)
-    linhas = simpleSplit(f"coloriu as {len(PAGINAS)} páginas bíblicas do {NOME} e aprendeu que Deus cuida de cada um de nós, "
-                         "hoje e sempre.", "Helvetica", 16, W - 240)
+    linhas = simpleSplit(f"completou a {NOME}, colorindo as {len(PAGINAS)} páginas bíblicas, e aprendeu que "
+                         "Deus cuida de cada um de nós, hoje e sempre.", "Helvetica", 16, W - 240)
     y = H - 375
     for ln in linhas:
         c.drawCentredString(W / 2, y, ln); y -= 22
     c.setFont("Helvetica", 11)
     c.line(110, 105, 290, 105); c.drawCentredString(200, 90, "Data")
     c.line(W - 290, 105, W - 110, 105); c.drawCentredString(W - 200, 90, "Catequista ou família")
-    c.setFont("Helvetica-Oblique", 11); c.drawCentredString(W / 2, 62, SLOGAN)
+    if SLOGAN:
+        c.setFont("Helvetica-Oblique", 11); c.drawCentredString(W / 2, 62, SLOGAN)
     c.showPage(); c.save()
 
 

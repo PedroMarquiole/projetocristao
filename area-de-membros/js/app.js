@@ -47,12 +47,12 @@
   function aplicarMarca() {
     var titulo = document.body.getAttribute("data-titulo");
     document.title = (titulo ? titulo + " — " : "") + PRODUTO.nome;
-    setMeta('meta[name="description"]', PRODUTO.nome + " — " + PRODUTO.slogan);
+    setMeta('meta[name="description"]', PRODUTO.slogan ? PRODUTO.nome + " — " + PRODUTO.slogan : "Área de membros — " + PRODUTO.nome);
     setMeta('meta[property="og:title"]', PRODUTO.nome);
-    setMeta('meta[property="og:description"]', PRODUTO.slogan);
+    setMeta('meta[property="og:description"]', PRODUTO.slogan || PRODUTO.nome);
     setMeta('meta[property="og:site_name"]', PRODUTO.nome);
     qsa("[data-produto-nome]").forEach(function (el) { el.textContent = PRODUTO.nome; });
-    qsa("[data-produto-slogan]").forEach(function (el) { el.textContent = PRODUTO.slogan; });
+    qsa("[data-produto-slogan]").forEach(function (el) { el.textContent = PRODUTO.slogan; el.hidden = !PRODUTO.slogan; });
     qsa("[data-ano]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
   }
   function setMeta(sel, valor) { var m = document.querySelector(sel); if (m) m.setAttribute("content", valor); }
