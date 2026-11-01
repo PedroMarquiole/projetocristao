@@ -11,12 +11,12 @@ module.exports = {
   slugBuckPay: "",         // slug da oferta no painel da BuckPay (liga a venda à oferta e dispara automações)
 
   /* Ofertas extras do checkout (marcadas pela pessoa antes de gerar o Pix).
-     ATENÇÃO: só deixe "ativo: false" nos extras que JÁ EXISTEM e serão entregues.
+     ATENÇÃO: só deixe "ativo: true" nos extras que JÁ EXISTEM e serão entregues.
      Vender um material que não existe gera reembolso e reclamação. */
   extras: [
     {
       id: "oracoes",
-      ativo: false,
+      ativo: true,
       nome: "Orações para a Hora de Dormir",
       descricao: "30 cartões de oração ilustrados para imprimir e rezar com seu filho antes de dormir.",
       precoDe: 19.90,
@@ -24,7 +24,7 @@ module.exports = {
     },
     {
       id: "versiculos",
-      ativo: false,
+      ativo: true,
       nome: "Versículos para Decorar",
       descricao: "Cartões com um versículo para cada página da jornada, para a criança aprender de cor.",
       precoDe: 17.90,
@@ -32,7 +32,7 @@ module.exports = {
     },
     {
       id: "datas",
-      ativo: false,
+      ativo: true,
       nome: "Kit Datas Cristãs",
       descricao: "Desenhos especiais de Natal, Páscoa e Pentecostes para colorir em família.",
       precoDe: 24.90,
