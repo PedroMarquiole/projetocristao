@@ -25,29 +25,19 @@
         <span class="marca__nome" data-produto-nome></span>
       </div>
       <h1 class="login__titulo">Que bom ter você aqui!</h1>
-      <p class="login__texto">Digite o e-mail que você usou na compra para abrir suas páginas de colorir.</p>
+      <p class="login__texto" id="login-msg" role="status">Conferindo seu acesso…</p>
 
-      <form id="form-login" novalidate>
-        <div class="campo">
-          <label for="email">Seu e-mail</label>
-          <input id="email" name="email" type="email" inputmode="email" autocomplete="email"
-                 placeholder="nome@email.com" required aria-describedby="email-erro">
-          <p class="campo__erro" id="email-erro" role="alert"></p>
-        </div>
-        <!-- TODO (BACKEND REAL): adicionar campo de senha (ou link mágico por e-mail)
-             e o link "Esqueci minha senha". -->
-        <button class="btn btn--azul btn--bloco" type="submit">Entrar</button>
-      </form>
+      <div id="login-sem-acesso" hidden>
+        <p class="login__texto">Para entrar, use o <b>link de acesso</b> que aparece na página de confirmação da compra. Ele fica salvo neste aparelho.</p>
+        <a class="btn btn--azul btn--bloco" href="/">Quero comprar</a>
+        <p class="login__ajuda">Já comprou e perdeu o link? Fale com o suporte.</p>
+      </div>
 
-      <p class="login__ajuda">
-        Não encontrou o e-mail da compra? Verifique a caixa de spam ou fale com o suporte.
-        <!-- TODO (BACKEND REAL): link do suporte (WhatsApp/e-mail) e botão de comprar (checkout). -->
-      </p>
       <p class="login__ajuda" data-produto-slogan></p>
     </div>
   </main>
 
   <script src="js/config.js?v=e964f2d2"></script>
-  <script src="js/app.js?v=da5ef653"></script>
+  <script src="js/app.js?v=368c16b3"></script>
 </body>
 </html>
