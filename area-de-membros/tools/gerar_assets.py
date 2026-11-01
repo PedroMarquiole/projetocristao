@@ -147,7 +147,7 @@ def diploma():
     c.setLineWidth(2); c.setStrokeColor(MARROM); c.line(W / 2 - 220, H - 320, W / 2 + 220, H - 320)
     c.setFont("Helvetica", 10); c.drawCentredString(W / 2, H - 335, "(nome da criança)")
     c.setFont("Helvetica", 16)
-    linhas = simpleSplit(f"completou a {NOME}, colorindo as {len(PAGINAS)} páginas bíblicas, e aprendeu que "
+    linhas = simpleSplit(f"completou a {NOME}, colorindo todas as páginas bíblicas, e aprendeu que "
                          "Deus cuida de cada um de nós, hoje e sempre.", "Helvetica", 16, W - 240)
     y = H - 375
     for ln in linhas:
