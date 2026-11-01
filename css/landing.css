@@ -496,3 +496,5 @@ a, button, summary, input, .giz, canvas { touch-action: manipulation; -webkit-ta
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+.oferta__lista .-bonus b { color: var(--roxo, #6A3FA0); }

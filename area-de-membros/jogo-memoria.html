@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FFC933">
+  <title>Jogo da Memória Bíblico</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=744a56b3">
+</head>
+<body>
+  <header class="topo">
+    <div class="container topo__linha">
+      <a class="marca" href="index.html"><img class="marca__logo" src="img/logo.svg" width="44" height="44" alt=""><span class="marca__nome" data-produto-nome></span></a>
+      <a class="link-sair" href="index.html">← Minhas páginas</a>
+    </div>
+  </header>
+  <main class="container memoria" id="conteudo">
+    <h1>Jogo da Memória Bíblico</h1>
+    <p class="memoria__intro">Vire duas cartas e encontre o par. Cada desenho é uma história da Bíblia: quando acertar, leia o nome dela em voz alta.</p>
+    <div class="memoria__nivel" role="group" aria-label="Dificuldade">
+      <button type="button" data-pares="6" aria-pressed="true">Fácil</button>
+      <button type="button" data-pares="8" aria-pressed="false">Médio</button>
+      <button type="button" data-pares="10" aria-pressed="false">Difícil</button>
+    </div>
+    <p class="memoria__placar" aria-live="polite"><span>Jogadas: <b id="m-jogadas">0</b></span><span>Pares: <b id="m-pares">0</b>/<b id="m-total">6</b></span></p>
+    <div class="memoria__grade" id="m-grade"></div>
+    <div class="memoria__fim" id="m-fim" hidden>
+      <h2>Parabéns! 🎉</h2>
+      <p id="m-fim-txt"></p>
+      <button class="btn-memoria" type="button" id="m-de-novo">Jogar de novo</button>
+    </div>
+    <button class="btn-memoria -claro" type="button" id="m-novo">Embaralhar</button>
+  </main>
+  <script src="js/config.js?v=e964f2d2"></script>
+  <script src="js/paginas.js?v=c13d431b"></script>
+  <script src="js/jogo.js?v=0978630a"></script>
+</body>
+</html>
