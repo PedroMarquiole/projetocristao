@@ -67,3 +67,6 @@ Liberar o acesso automaticamente quando o pagamento for aprovado (ver TODO em `a
 ## Antes de cada envio
 Rode `python3 versionar.py`. Ele atualiza a versão dos arquivos CSS/JS nas páginas, para quem já visitou o site
 receber a versão nova na hora, sem ficar preso no cache do celular.
+
+## Acesso à área de membros (sem banco de dados)
+Quando o pagamento é aprovado, `/api/status` devolve uma chave assinada (HMAC, `api/_acesso.js`). O checkout a guarda no navegador e a página de obrigado mostra um link de acesso (`/area-de-membros/login.html?acesso=...`) para entrar em outros aparelhos. As páginas da área só abrem se `/api/acesso` confirmar a chave. Opcional: defina `ACESSO_SEGREDO` na Vercel (qualquer texto longo e secreto); sem ela, a assinatura usa os segredos que já existem. Limite: os arquivos em `/area-de-membros/pdfs` continuam acessíveis por endereço direto.

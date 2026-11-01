@@ -66,36 +66,28 @@
     return base.charAt(0).toUpperCase() + base.slice(1).toLowerCase();
   }
 
-  /* ===================== LOGIN ===================== */
+  /* ===================== LOGIN (só entra quem tem compra aprovada) ===================== */
   function iniciarLogin() {
-    var form = document.getElementById("form-login");
-    var campo = document.getElementById("email");
-    var erro = document.getElementById("email-erro");
-
-    form.addEventListener("submit", function (ev) {
-      ev.preventDefault();
-      var email = campo.value.trim();
-      var valido = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
-      if (!valido) {
-        campo.setAttribute("aria-invalid", "true");
-        erro.textContent = "Digite o e-mail que você usou na compra. Exemplo: nome@email.com";
-        campo.focus();
-        return;
-      }
-      campo.removeAttribute("aria-invalid");
-      erro.textContent = "";
-
-      /* TODO (BACKEND REAL): aqui entra a validação de verdade, por exemplo:
-           fetch('/api/login', { method: 'POST', body: JSON.stringify({ email, senha }) })
-         - conferir se o e-mail está na lista de compradores (webhook do checkout:
-           Hotmart, Kiwify, Eduzz, Stripe...);
-         - login com senha ou link mágico enviado por e-mail;
-         - receber um token/cookie de sessão (HttpOnly) e só então redirecionar.
-         Por enquanto, qualquer e-mail válido entra. */
-      gravar("email", email);
-      gravar("nome", nomeDoEmail(email));
-      window.location.href = "index.html";
-    });
+    var msg = document.getElementById("login-msg"), sem = document.getElementById("login-sem-acesso");
+    var params = new URLSearchParams(location.search);
+    var token = params.get("acesso") || "";
+    if (!token) { try { token = localStorage.getItem("acesso") || ""; } catch (e) {} }
+    function semAcesso(texto) {
+      try { localStorage.removeItem("acesso"); sessionStorage.removeItem("acessoOk"); } catch (e) {}
+      msg.hidden = !texto; if (texto) msg.textContent = texto;
+      sem.hidden = false;
+    }
+    if (!token) return semAcesso("");
+    fetch("/api/acesso", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: token }) })
+      .then(function (r) { return r.json(); })
+      .then(function (r) {
+        if (!r || !r.ok) return semAcesso(params.get("acesso") ? "Este link de acesso não é válido. Confira se copiou o link inteiro." : "");
+        try { localStorage.setItem("acesso", token); sessionStorage.setItem("acessoOk", token); } catch (e) {}
+        var n = params.get("n"); if (n) gravar("nome", n.slice(0, 40));
+        msg.textContent = "Tudo certo! Abrindo suas páginas…";
+        window.location.replace("index.html");
+      })
+      .catch(function () { semAcesso("Não foi possível conferir seu acesso agora. Verifique a internet e tente de novo."); });
   }
 
   /* ===================== ÁREA DE MEMBROS ===================== */
@@ -309,7 +301,7 @@
   /* ---------- Início ---------- */
   document.addEventListener("DOMContentLoaded", function () {
     aplicarMarca();
-    if (document.getElementById("form-login")) iniciarLogin();
+    if (document.getElementById("login-msg")) iniciarLogin();
     if (document.getElementById("grade")) iniciarMembros();
   });
 })();

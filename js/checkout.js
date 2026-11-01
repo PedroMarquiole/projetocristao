@@ -125,7 +125,7 @@
     clearTimeout(timerStatus);
     var conferir = function () {
       api("status?id=" + encodeURIComponent(id)).then(function (r) {
-        if (r.status === "approved") return aprovado();
+        if (r.status === "approved") return aprovado(r.acesso);
         if (r.status === "rejected" || r.status === "expired") { $("#pix-status").textContent = "O pagamento não foi concluído. Volte e gere um novo Pix."; return; }
         timerStatus = setTimeout(conferir, 4000);
       }).catch(function () { timerStatus = setTimeout(conferir, 6000); });
@@ -133,11 +133,13 @@
     timerStatus = setTimeout(conferir, 3000);
   }
 
-  function aprovado() {
+  function aprovado(acesso) {
     clearTimeout(timerStatus); clearInterval(timerTempo);
     var st = $("#pix-status"); st.className = "ck-aguardando -ok"; st.textContent = "Pagamento confirmado! Abrindo seu acesso…";
     var c = {}; try { c = JSON.parse(sessionStorage.getItem("compra") || "{}"); } catch (e) { /* ok */ }
     if (window.rastrear) window.rastrear("Purchase", { value: c.total || cfg.preco, currency: "BRL", content_name: cfg.produto });
+    // Guarda a chave de acesso (só existe depois do pagamento aprovado).
+    try { if (acesso) { localStorage.setItem("acesso", acesso); c.acesso = acesso; sessionStorage.setItem("compra", JSON.stringify(c)); } } catch (e) { /* sem armazenamento: o link da página de obrigado resolve */ }
     setTimeout(function () { window.location.href = "obrigado.html"; }, 900);
   }
 
