@@ -22,16 +22,18 @@
   }
 
   // ---------- Utmify ----------
+  /* Script de UTMs da Utmify (fornecido pela Utmify, versão legível). Roda sempre, sem precisar de ID. */
+  var u = document.createElement("script");
+  u.async = true; u.defer = true; u.src = "https://cdn.utmify.com.br/scripts/utms/latest.js";
+  u.setAttribute("data-utmify-prevent-xcod-sck", "");
+  u.setAttribute("data-utmify-prevent-subids", "");
+  document.head.appendChild(u);
+  /* Pixel da Utmify: só carrega quando o ID estiver preenchido em js/config.js. */
   if (cfg.utmifyPixelId) {
-    /* TODO: confira no painel da Utmify se os endereços abaixo continuam os mesmos. */
     window.pixelId = cfg.utmifyPixelId;
     var p = document.createElement("script");
     p.async = true; p.defer = true; p.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
     document.head.appendChild(p);
-    var u = document.createElement("script");
-    u.async = true; u.defer = true; u.src = "https://cdn.utmify.com.br/scripts/utms/latest.js";
-    u.setAttribute("data-utmify-prevent-subids", "");
-    document.head.appendChild(u);
   }
 
   // ---------- Eventos ----------
