@@ -16,6 +16,7 @@
     livro: '<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/>',
     conversa: '<path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4A8 8 0 1 1 20 12z"/>',
     pincel: '<path d="M18.4 2.6a2 2 0 0 1 2.9 2.9L11 15.8 8.2 13z"/><path d="M8 14c-2.5 0-4 1.6-4 4 0 1.4-.6 2.2-2 3 3.5.7 8-.3 8-4.5"/>',
+    lerHistoria: '<path d="M2 5.5C4.5 4 7.5 4 10 5.5v14C7.5 18 4.5 18 2 19.5z"/><path d="M22 5.5C19.5 4 16.5 4 14 5.5v14c2.5-1.5 5.5-1.5 8 0z"/><path d="M10 5.5 12 7l2-1.5"/>',
     sair: '<path d="M10 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4"/><path d="m15 8 4 4-4 4"/><path d="M19 12H9"/>'
   };
   function icone(nome, classe) {
@@ -186,6 +187,8 @@
         '<p class="card__texto">' + p.texto + "</p>" +
         '<p class="card__conversa">' + icone("conversa") + "<span>Converse: " + p.conversa + "</span></p>" +
         '<div class="card__acoes">' +
+          (historiaDe(p) ? '<button type="button" class="btn btn--roxo btn--bloco btn-historia">' + icone("lerHistoria") +
+            'Ler a história<span class="sr-only">: ' + p.titulo + "</span></button>" : "") +
           '<a class="btn btn--azul btn--bloco" href="' + pdf + '" download>' + icone("download") +
             'Baixar PDF<span class="sr-only">: ' + p.titulo + "</span></a>" +
           '<button type="button" class="btn btn--sol btn--bloco btn-pintar">' + icone("pincel") +
@@ -198,10 +201,43 @@
     var btn = li.querySelector(".btn-marcar");
     rotularBotao(btn, p, feito);
     btn.addEventListener("click", function () { alternar(p, li, btn); });
+    var bh = li.querySelector(".btn-historia");
+    if (bh) bh.addEventListener("click", function () { abrirHistoria(p, bh); });
     li.querySelector(".btn-pintar").addEventListener("click", function () {
       if (window.abrirPintura) window.abrirPintura(p);
     });
     return li;
+  }
+
+  /* ---------- Histórias Bíblicas (js/historias.js) ---------- */
+  // "const HISTORIAS" não vira window.HISTORIAS, por isso a checagem com typeof.
+  function historiaDe(p) { return typeof HISTORIAS !== "undefined" && HISTORIAS[p.slug] ? HISTORIAS[p.slug] : ""; }
+  var leitura = null, voltarFoco = null;
+  function abrirHistoria(p, origem) {
+    if (!leitura) {
+      leitura = document.createElement("dialog");
+      leitura.className = "leitura";
+      leitura.setAttribute("aria-labelledby", "leitura-titulo");
+      leitura.innerHTML = '<div class="leitura__topo"><span class="leitura__ref" id="leitura-ref"></span>' +
+        '<button type="button" class="pintor__fechar" data-fechar aria-label="Fechar a história">✕</button></div>' +
+        '<h2 id="leitura-titulo"></h2><div class="leitura__texto" id="leitura-texto"></div>' +
+        '<p class="card__conversa leitura__conversa" id="leitura-conversa"></p>' +
+        '<button type="button" class="btn btn--azul btn--bloco" data-fechar>Fechei, vamos colorir!</button>';
+      document.body.appendChild(leitura);
+      leitura.addEventListener("click", function (e) { if (e.target.closest("[data-fechar]") || e.target === leitura) leitura.close(); });
+      leitura.addEventListener("close", function () { if (voltarFoco) voltarFoco.focus(); });
+    }
+    voltarFoco = origem;
+    leitura.setAttribute("data-cat", p.categoria);
+    document.getElementById("leitura-ref").textContent = p.ref;
+    document.getElementById("leitura-titulo").textContent = p.titulo;
+    var caixa = document.getElementById("leitura-texto");
+    caixa.innerHTML = "";
+    historiaDe(p).split("\n\n").forEach(function (par) { var el = document.createElement("p"); el.textContent = par; caixa.appendChild(el); });
+    document.getElementById("leitura-conversa").innerHTML = icone("conversa") + "<span></span>";
+    document.querySelector("#leitura-conversa span").textContent = "Converse: " + p.conversa;
+    if (leitura.showModal) leitura.showModal(); else leitura.setAttribute("open", "");
+    leitura.scrollTop = 0;
   }
 
   function rotularBotao(btn, p, feito) {
