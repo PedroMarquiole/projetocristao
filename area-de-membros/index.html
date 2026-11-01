@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FFC933">
+  <!-- Título e meta tags são preenchidos por js/app.js a partir de PRODUTO (js/config.js).
+       Obs.: o WhatsApp lê só o HTML estático (não executa JS). Quando o nome for definido,
+       copie-o também para <title> e og:title abaixo para a prévia do link ficar certa. -->
+  <title>Área de Membros</title>
+  <meta name="description" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:site_name" content="">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-titulo="Minhas páginas">
+  <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <div class="container topo__linha">
+      <a class="marca" href="index.html">
+        <!-- Para trocar o símbolo da logo, substitua img/logo.svg -->
+        <img class="marca__logo" src="img/logo.svg" width="44" height="44" alt="">
+        <span class="marca__nome" data-produto-nome></span>
+      </a>
+      <div class="topo__usuario">
+        <p class="saudacao">Olá, <span id="saudacao-nome">amigo(a)</span>!</p>
+        <!-- TODO (BACKEND REAL): "Sair" deve encerrar a sessão no servidor (logout). -->
+        <a class="link-sair" href="login.html">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4"/><path d="m15 8 4 4-4 4"/><path d="M19 12H9"/></svg>
+          Sair
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo" class="container" tabindex="-1">
+    <section class="banner" aria-labelledby="banner-titulo">
+      <div class="anel" id="anel" role="img" aria-label="Páginas coloridas">
+        <svg viewBox="0 0 148 148" aria-hidden="true">
+          <circle class="anel__trilho" cx="74" cy="74" r="56"/>
+          <circle class="anel__valor" id="anel-valor" cx="74" cy="74" r="56"/>
+        </svg>
+        <div class="anel__centro" aria-hidden="true">
+          <span class="anel__numero" id="anel-numero">0</span>
+          <span class="anel__legenda" id="anel-total"></span>
+        </div>
+      </div>
+      <div>
+        <h1 class="banner__titulo" id="banner-titulo">Bem-vindo à sua área de colorir!</h1>
+        <p class="banner__texto" id="banner-msg" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="filtros" aria-labelledby="filtros-titulo">
+      <h2 class="filtros__titulo" id="filtros-titulo">Sua jornada pela Bíblia</h2>
+      <p class="filtros__intro">As páginas seguem a ordem da Bíblia, da Criação à Ressurreição de Jesus. Pinte uma por dia, na sequência.</p>
+      <div class="filtros__lista" id="lista-abas" role="group" aria-label="Filtrar por categoria"></div>
+      <p class="sr-only" id="status-filtro" role="status"></p>
+    </section>
+
+    <ul class="grade" id="grade" aria-label="Páginas para colorir"></ul>
+
+    <p class="aviso-storage" id="aviso-storage" hidden>
+      Seu navegador não permitiu salvar o progresso. Você pode continuar usando, mas ele será perdido ao fechar esta página.
+      Tente abrir o link no Chrome ou no Safari.
+    </p>
+
+    <section id="diploma" class="diploma -bloqueado" aria-live="polite"></section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p class="rodape__nome" data-produto-nome></p>
+      <p class="rodape__slogan" data-produto-slogan></p>
+      <!-- TODO (BACKEND REAL): link de suporte, política de privacidade, termos e reembolso. -->
+      <small>© <span data-ano></span> <span data-produto-nome></span>. Para uso pessoal e em família, na catequese e em casa.</small>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/paginas.js"></script>
+  <script src="js/pintar.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

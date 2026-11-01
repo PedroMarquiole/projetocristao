@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FFC933">
+  <!-- Título e meta tags são preenchidos por js/app.js a partir de PRODUTO (js/config.js). -->
+  <title>Entrar</title>
+  <meta name="description" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:site_name" content="">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-titulo="Entrar">
+  <main class="login">
+    <div class="login__caixa">
+      <div class="marca login__marca">
+        <img class="marca__logo" src="img/logo.svg" width="44" height="44" alt="">
+        <span class="marca__nome" data-produto-nome></span>
+      </div>
+      <h1 class="login__titulo">Que bom ter você aqui!</h1>
+      <p class="login__texto">Digite o e-mail que você usou na compra para abrir suas páginas de colorir.</p>
+
+      <form id="form-login" novalidate>
+        <div class="campo">
+          <label for="email">Seu e-mail</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email"
+                 placeholder="nome@email.com" required aria-describedby="email-erro">
+          <p class="campo__erro" id="email-erro" role="alert"></p>
+        </div>
+        <!-- TODO (BACKEND REAL): adicionar campo de senha (ou link mágico por e-mail)
+             e o link "Esqueci minha senha". -->
+        <button class="btn btn--azul btn--bloco" type="submit">Entrar</button>
+      </form>
+
+      <p class="login__ajuda">
+        Não encontrou o e-mail da compra? Verifique a caixa de spam ou fale com o suporte.
+        <!-- TODO (BACKEND REAL): link do suporte (WhatsApp/e-mail) e botão de comprar (checkout). -->
+      </p>
+      <p class="login__ajuda" data-produto-slogan></p>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

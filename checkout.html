@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FFF9EC">
+  <meta name="robots" content="noindex">
+  <title>Finalizar compra | Nome do Produto</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/baloo2-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/quicksand-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/landing.css">
+  <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body class="pg-checkout">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-cadeado" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-pix" viewBox="0 0 24 24"><path d="M12 2.5 21.5 12 12 21.5 2.5 12z"/><path d="m8 8 4 4 4-4M8 16l4-4 4 4"/></symbol>
+    <symbol id="i-cartao" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6 15h4"/></symbol>
+    <symbol id="i-copiar" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+    <symbol id="i-raio" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
+    <symbol id="i-voltar" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
+  </svg>
+
+  <header class="ck-topo">
+    <div class="container ck-topo__linha">
+      <a class="marca" href="index.html"><img src="img/logo.svg" width="36" height="36" alt=""><span data-produto-nome>Nome do Produto</span></a>
+      <span class="ck-seguro"><svg class="icone"><use href="#i-cadeado"/></svg>Pagamento seguro</span>
+    </div>
+  </header>
+
+  <p class="ck-demo" id="ck-demo" hidden>Modo demonstração: nenhum valor será cobrado. Os pagamentos de verdade começam quando a empresa de pagamento for configurada.</p>
+
+  <main class="container ck">
+    <!-- ===== Resumo do pedido ===== -->
+    <aside class="ck-resumo" aria-labelledby="resumo-titulo">
+      <h2 class="sr-only" id="resumo-titulo">Resumo do pedido</h2>
+      <div class="ck-produto">
+        <img src="img/criancas-colorido-560.webp" width="560" height="359" alt="">
+        <div>
+          <b data-produto-nome>Nome do Produto</b>
+          <span>Jornada pela Bíblia para colorir. Acesso digital imediato.</span>
+        </div>
+      </div>
+      <ul class="limpa ck-inclui">
+        <li><svg class="icone"><use href="#i-check"/></svg>Jornada completa, da Criação à Ressurreição</li>
+        <li><svg class="icone"><use href="#i-check"/></svg>Pintura no celular e PDFs para imprimir</li>
+        <li><svg class="icone"><use href="#i-check"/></svg>Diploma de Pequeno Discípulo</li>
+      </ul>
+      <div class="ck-total"><span>Total</span><b id="ck-preco">R$ 19,90</b></div>
+      <p class="ck-total__nota">Pagamento único, sem mensalidade.</p>
+    </aside>
+
+    <!-- ===== Formulário ===== -->
+    <section class="ck-form" id="ck-form" aria-labelledby="dados-titulo">
+      <form id="form-dados" novalidate>
+        <h1 class="ck-passo" id="dados-titulo"><span aria-hidden="true">1</span>Seus dados</h1>
+        <p class="ck-ajuda">O acesso é liberado para este e-mail.</p>
+        <div class="ck-campo">
+          <label for="nome">Nome completo</label>
+          <input id="nome" name="nome" autocomplete="name" required placeholder="Maria da Silva">
+        </div>
+        <div class="ck-campo">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required placeholder="maria@email.com">
+        </div>
+        <div class="ck-dupla">
+          <div class="ck-campo">
+            <label for="cpf">CPF</label>
+            <input id="cpf" name="cpf" inputmode="numeric" autocomplete="off" required placeholder="000.000.000-00" maxlength="14">
+          </div>
+          <div class="ck-campo">
+            <label for="telefone">WhatsApp <small>(opcional)</small></label>
+            <input id="telefone" name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000" maxlength="15">
+          </div>
+        </div>
+
+        <h2 class="ck-passo"><span aria-hidden="true">2</span>Forma de pagamento</h2>
+        <div class="ck-metodos" role="radiogroup" aria-label="Forma de pagamento">
+          <button type="button" class="ck-metodo" role="radio" aria-checked="true" data-metodo="pix">
+            <svg class="icone"><use href="#i-pix"/></svg><b>Pix</b><small>Aprovação na hora</small>
+          </button>
+          <button type="button" class="ck-metodo" role="radio" aria-checked="false" data-metodo="cartao">
+            <svg class="icone"><use href="#i-cartao"/></svg><b>Cartão</b><small id="ck-parcelas">Até 3x</small>
+          </button>
+        </div>
+
+        <div class="ck-painel" id="painel-pix">
+          <p class="ck-pix-info"><svg class="icone"><use href="#i-raio"/></svg>Ao gerar o Pix, aparece um QR Code e um código para copiar. O acesso é liberado assim que o pagamento cai.</p>
+          <button class="btn btn--comprar btn--bloco" type="submit" id="btn-pix">Gerar Pix</button>
+        </div>
+        <div class="ck-painel" id="painel-cartao" hidden>
+          <div class="ck-campo">
+            <label for="cc-numero">Número do cartão</label>
+            <input id="cc-numero" inputmode="numeric" autocomplete="cc-number" placeholder="0000 0000 0000 0000" maxlength="23">
+          </div>
+          <div class="ck-campo">
+            <label for="cc-nome">Nome impresso no cartão</label>
+            <input id="cc-nome" autocomplete="cc-name" placeholder="MARIA DA SILVA">
+          </div>
+          <div class="ck-dupla -sempre">
+            <div class="ck-campo">
+              <label for="cc-validade">Validade</label>
+              <input id="cc-validade" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/AA" maxlength="5">
+            </div>
+            <div class="ck-campo">
+              <label for="cc-cvv">CVV</label>
+              <input id="cc-cvv" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="4">
+            </div>
+          </div>
+          <div class="ck-campo">
+            <label for="cc-parcelas">Parcelas</label>
+            <select id="cc-parcelas"></select>
+          </div>
+          <button class="btn btn--comprar btn--bloco" type="submit" id="btn-cartao">Pagar com cartão</button>
+        </div>
+
+        <p class="ck-erro" id="ck-erro" role="alert"></p>
+      </form>
+
+      <div class="ck-garantia">
+        <svg class="icone"><use href="#i-escudo"/></svg>
+        <p><b>Garantia de 7 dias.</b> Se não gostar, devolvemos 100% do valor.</p>
+      </div>
+      <p class="ck-legal">Ao comprar, você concorda com os <a href="termos.html">Termos de uso</a> e a <a href="privacidade.html">Política de privacidade</a>. Pagamento processado com segurança pela nossa empresa de pagamento.</p>
+    </section>
+
+    <!-- ===== Pix gerado ===== -->
+    <section class="ck-pix" id="ck-pix" hidden aria-labelledby="pix-titulo" tabindex="-1">
+      <h1 class="ck-pix__titulo" id="pix-titulo">Pague o Pix para liberar o acesso</h1>
+      <p class="ck-pix__tempo">O código vale por <b id="pix-tempo">30:00</b></p>
+      <div class="ck-qr" id="pix-qr"></div>
+      <ol class="limpa ck-pix__passos">
+        <li><span>Abra o app do seu banco e escolha <b>Pix</b>.</span></li>
+        <li><span>Escaneie o QR Code ou use <b>Pix Copia e Cola</b>.</span></li>
+        <li><span>Confirme o pagamento. Esta página atualiza sozinha.</span></li>
+      </ol>
+      <label class="ck-copia__rotulo" for="pix-codigo">Código Pix Copia e Cola</label>
+      <div class="ck-copia">
+        <input id="pix-codigo" readonly>
+        <button class="btn btn--comprar" type="button" id="btn-copiar"><svg class="icone"><use href="#i-copiar"/></svg><span>Copiar</span></button>
+      </div>
+      <p class="ck-aguardando" id="pix-status" aria-live="polite"><span class="ck-girando" aria-hidden="true"></span>Aguardando o pagamento…</p>
+      <button class="ck-voltar" type="button" id="btn-voltar"><svg class="icone"><use href="#i-voltar"/></svg>Voltar e escolher outra forma de pagamento</button>
+    </section>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/rastreio.js"></script>
+  <script src="js/checkout.js" defer></script>
+</body>
+</html>

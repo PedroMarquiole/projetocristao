@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FFC933">
+  <!-- O WhatsApp e o Facebook leem só este HTML (não rodam JS). Ao definir o nome do produto,
+       troque "Nome do Produto" aqui também. -->
+  <title>Seu filho longe das telas, do Gênesis à Ressurreição | Nome do Produto</title>
+  <meta name="description" content="Uma jornada pela Bíblia em desenhos para colorir: da Criação do Mundo à Ressurreição de Jesus, em ordem. Cada página ensina uma história e traz uma pergunta para conversar em família.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Seu filho longe das telas, conhecendo a Bíblia do Gênesis à Ressurreição">
+  <meta property="og:description" content="Desenhos bíblicos para imprimir em casa, com uma pergunta para conversar em cada página.">
+  <!-- TODO: quando tiver o domínio, use o endereço completo (o Facebook exige), ex.: https://seudominio.com.br/img/compartilhar.jpg -->
+  <meta property="og:image" content="img/compartilhar.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Nome do Produto">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <!-- Carregamento rápido: fontes hospedadas no próprio site (sem conexão extra ao Google)
+       e a imagem da demonstração em versão menor no celular. -->
+  <link rel="preload" href="fonts/baloo2-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/quicksand-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="img/criancas-colorido-560.webp" as="image" media="(max-width: 759px)">
+  <link rel="preload" href="img/demo-pesca.png" as="image" media="(min-width: 760px)">
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 20h14"/></symbol>
+    <symbol id="i-printer" viewBox="0 0 24 24"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4A8 8 0 1 1 20 12z"/></symbol>
+    <symbol id="i-toque" viewBox="0 0 24 24"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M12 10.5V9a1.5 1.5 0 0 1 3 0v2"/><path d="M15 10.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-1a6 6 0 0 1-4.6-2.2L4 16a1.5 1.5 0 0 1 2.3-1.9L9 16"/></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+    <symbol id="i-celular" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></symbol>
+    <symbol id="i-raio" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
+    <symbol id="i-esq" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
+    <symbol id="i-dir" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+    <symbol id="i-desfazer" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></symbol>
+    <symbol id="i-limpar" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13"/><path d="M9 7V4h6v3"/></symbol>
+    <symbol id="i-lua" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+    <symbol id="i-tempestade" viewBox="0 0 24 24"><path d="M7 15a4 4 0 1 1 1-7.9A5 5 0 0 1 18 8a3.5 3.5 0 0 1 0 7"/><path d="m12 13-2 4h4l-2 4"/></symbol>
+    <symbol id="i-alvo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-cadeado" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-casa" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></symbol>
+    <symbol id="i-coracao" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 7.5 3c0 5.4-7.5 10-7.5 10z"/></symbol>
+    <symbol id="i-igreja" viewBox="0 0 24 24"><path d="M12 2v5M10 4h4"/><path d="M6 21V11l6-4 6 4v10"/><path d="M10 21v-4a2 2 0 0 1 4 0v4"/></symbol>
+    <symbol id="i-livro" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></symbol>
+  </svg>
+
+  <header class="topo">
+    <div class="container">
+      <a class="marca" href="#">
+        <img src="img/logo.svg" width="40" height="40" alt="">
+        <span data-produto-nome>Nome do Produto</span>
+      </a>
+      <a class="topo__entrar" href="/area-de-membros/login.html" data-area-membros>Já comprei</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="container hero__grade">
+        <div class="hero__texto">
+          <p class="hero__gancho"><svg class="icone"><use href="#i-coracao"/></svg>Catequese em casa, de 3 a 10 anos</p>
+          <h1>Seu filho longe das telas e perto de Jesus.</h1>
+          <figure class="hero__visual" aria-hidden="true">
+            <img src="img/criancas-colorido-560.webp" srcset="img/criancas-colorido-560.webp 560w, img/criancas-colorido-720.webp 720w" sizes="88vw" width="560" height="359" fetchpriority="high" decoding="async" alt="">
+            <span class="hero__selo">Pinte no papel ou no celular</span>
+            <svg class="hero__giz" viewBox="0 0 34 64"><path d="M9 21 17 3l8 18z" fill="#E53935" stroke="#3A2A1E" stroke-width="2.5" stroke-linejoin="round"/><rect x="7" y="20" width="20" height="42" rx="3" fill="#E53935" stroke="#3A2A1E" stroke-width="2.5"/><rect x="7" y="31" width="20" height="15" fill="#fff" fill-opacity=".8" stroke="#3A2A1E" stroke-width="2"/></svg>
+            <svg class="hero__giz -dois" viewBox="0 0 34 64"><path d="M9 21 17 3l8 18z" fill="#FFC933" stroke="#3A2A1E" stroke-width="2.5" stroke-linejoin="round"/><rect x="7" y="20" width="20" height="42" rx="3" fill="#FFC933" stroke="#3A2A1E" stroke-width="2.5"/><rect x="7" y="31" width="20" height="15" fill="#fff" fill-opacity=".8" stroke="#3A2A1E" stroke-width="2"/></svg>
+          </figure>
+          <p class="hero__sub">Uma jornada para colorir pela Bíblia, em ordem: começa na Criação do Mundo e termina na Ressurreição de Jesus. Uma página por dia, e a hora da tela vira a hora de aprender sobre Deus.</p>
+          <ul class="limpa hero__beneficios">
+            <li><svg class="icone"><use href="#i-check"/></svg><span><b>Catequese pronta:</b> história, referência bíblica e pergunta em cada página</span></li>
+            <li><svg class="icone"><use href="#i-check"/></svg><span><b>Sem briga</b> na hora de desligar o celular</span></li>
+            <li><svg class="icone"><use href="#i-check"/></svg><span><b>Sem preparar nada:</b> imprima ou pinte direto na tela</span></li>
+          </ul>
+          <div class="hero__cta" id="hero-cta">
+            <a class="btn btn--comprar" href="#oferta">Quero começar a jornada</a>
+            <p class="hero__preco">Comece hoje: o acesso chega na hora, no seu e-mail.</p>
+            <ul class="limpa garantias-curtas">
+              <li><svg class="icone"><use href="#i-raio"/></svg>Acesso imediato</li>
+              <li><svg class="icone"><use href="#i-celular"/></svg>Funciona no celular</li>
+              <li><svg class="icone"><use href="#i-escudo"/></svg><span>Garantia de <span data-oferta="garantiaDias">7</span> dias</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <figure class="demo" aria-labelledby="demo-instrucao" style="margin:0">
+          <figcaption class="demo__instrucao" id="demo-instrucao">
+            <svg class="icone"><use href="#i-toque"/></svg>
+            Teste agora, de graça: escolha um giz e toque no desenho.
+          </figcaption>
+          <div class="demo__tela">
+            <canvas id="tela-demo" width="1000" height="942" data-src="img/demo-pesca.png" data-src-celular="img/demo-pesca-720.png" data-horizonte="0.725"
+                    role="img" aria-label="Página para colorir: a Pesca Milagrosa. Toque em uma área para pintar com o giz escolhido."></canvas>
+            <button type="button" class="demo__dica" id="demo-dica"><svg class="icone"><use href="#i-toque"/></svg>Toque para pintar</button>
+          </div>
+          <div class="demo__ferramentas">
+            <div class="gizes" id="gizes" role="group" aria-label="Cores de giz"></div>
+            <div class="demo__acoes">
+              <span class="demo__cor-atual" aria-live="polite"><i id="demo-cor-amostra"></i><span id="demo-cor-nome">Vermelho</span></span>
+              <span class="demo__botoes">
+                <button class="btn btn--leve" type="button" id="demo-desfazer" aria-label="Desfazer última pintura"><svg class="icone"><use href="#i-desfazer"/></svg></button>
+                <button class="btn btn--leve" type="button" id="demo-limpar" aria-label="Limpar o desenho"><svg class="icone"><use href="#i-limpar"/></svg></button>
+              </span>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <div class="onda" aria-hidden="true"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 30 C 240 0 480 60 720 30 S 1200 0 1440 30 V60 H0 Z" fill="#3A2A1E"/></svg></div>
+    <!-- ============ A CENA (DOR) ============ -->
+    <section class="secao cena" aria-labelledby="cena-titulo">
+      <div class="container">
+        <h2 class="secao__titulo" id="cena-titulo">Você tira o celular. E começa o choro.</h2>
+        <div class="cena__texto">
+          <p>Ele não sabe o que fazer sem a tela. Reclama, se joga no sofá, diz que está entediado. Você, cansada depois de um dia inteiro, devolve o aparelho só para ter um pouco de paz.</p>
+          <p>No dia seguinte, a mesma cena. E fica aquela culpa: <strong>a criança passa horas com vídeos, e quase nenhum minuto ouvindo falar de Deus.</strong></p>
+        </div>
+        <p class="cena__alerta">E a conta chega. A Sociedade Brasileira de Pediatria alerta para estes efeitos do excesso de telas na infância:</p>
+        <ul class="limpa efeitos">
+          <li><svg class="icone"><use href="#i-lua"/></svg><b>Sono agitado</b><span>Demora para dormir e acorda cansado.</span></li>
+          <li><svg class="icone"><use href="#i-tempestade"/></svg><b>Irritação e birra</b><span>Explode quando a tela é desligada.</span></li>
+          <li><svg class="icone"><use href="#i-alvo"/></svg><b>Pouca atenção</b><span>Não para quieto em nada que não seja vídeo.</span></li>
+        </ul>
+        <div class="recomendacao">
+          <p>Quanto de tela a Sociedade Brasileira de Pediatria recomenda, no máximo, por dia:</p>
+          <ul class="limpa recomendacao__lista">
+            <li><span>Menores de 2 anos</span><b>nenhuma</b></li>
+            <li><span>De 2 a 5 anos</span><b>1 hora</b></li>
+            <li><span>De 6 a 10 anos</span><b>1 a 2 horas</b></li>
+          </ul>
+          <small>Fonte: Sociedade Brasileira de Pediatria, manual “Menos Telas, Mais Saúde” (2019).</small>
+        </div>
+        <p class="cena__virada">Tirar a tela não basta. É preciso colocar algo melhor no lugar.</p>
+      </div>
+    </section>
+
+    <div class="onda -baixo" aria-hidden="true"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 30 C 240 0 480 60 720 30 S 1200 0 1440 30 V60 H0 Z" fill="#3A2A1E"/></svg></div>
+    <!-- ============ ANTES E DEPOIS (arraste) ============ -->
+    <section class="secao" aria-labelledby="ad-titulo">
+      <div class="container">
+        <h2 class="secao__titulo" id="ad-titulo">Do papel em branco à história ganhando cor</h2>
+        <p class="secao__intro">Arraste para ver a mesma página antes e depois de pintada.</p>
+        <div class="comparar" id="comparar" style="--pos: 50%">
+          <img class="comparar__img" src="img/paginas/nova-jesus-e-as-criancas-720.webp" srcset="img/paginas/nova-jesus-e-as-criancas-720.webp 720w, img/paginas/nova-jesus-e-as-criancas.webp 1400w" sizes="(min-width: 760px) 70vw, 92vw" width="1400" height="897" loading="lazy" decoding="async" alt="Página Jesus Abençoa as Crianças sem cor, pronta para pintar">
+          <div class="comparar__cor" aria-hidden="true">
+            <img class="comparar__img" src="img/criancas-colorido-720.webp" srcset="img/criancas-colorido-720.webp 720w, img/criancas-colorido.webp 1400w" sizes="(min-width: 760px) 70vw, 92vw" width="1400" height="897" loading="lazy" decoding="async" alt="">
+          </div>
+          <span class="comparar__rotulo -antes" aria-hidden="true">Antes</span>
+          <span class="comparar__rotulo -depois" aria-hidden="true">Pintado</span>
+          <span class="comparar__alca" aria-hidden="true"><span class="comparar__botao"><svg viewBox="0 0 24 24" width="26" height="26"><path d="m9 6-5 6 5 6M15 6l5 6-5 6" fill="none" stroke="#3A2A1E" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+          <input class="comparar__faixa" id="comparar-faixa" type="range" min="0" max="100" value="50" aria-label="Arraste para comparar a página sem cor e pintada">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CALCULADORA ============ -->
+    <section class="secao" aria-labelledby="calc-titulo" style="padding-top:0">
+      <div class="container">
+        <h2 class="secao__titulo" id="calc-titulo">Quanto tempo de tela cabe em um ano?</h2>
+        <p class="secao__intro">Arraste e veja a conta do seu filho.</p>
+        <div class="calc">
+          <div>
+            <label for="horas">Horas de tela por dia <output class="horas" id="horas-valor" for="horas">3 horas</output></label>
+            <input class="faixa" type="range" id="horas" min="0.5" max="8" step="0.5" value="3">
+          </div>
+          <div class="calc__resultados" aria-live="polite">
+            <div class="calc__caixa -tela">
+              <div class="calc__numero" id="tela-ano">1.095 horas</div>
+              <p id="tela-dias">Mais de 45 dias inteiros, 24 horas por dia, olhando para uma tela.</p>
+            </div>
+            <div class="calc__caixa -troca">
+              <div class="calc__numero" id="troca-ano">121 horas</div>
+              <p>de conversa sobre Deus com você, trocando só 20 minutos de tela por dia por uma página para colorir.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ A JORNADA PELA BÍBLIA ============ -->
+    <section class="secao jornada" aria-labelledby="jornada-titulo" style="padding-top:0">
+      <div class="container">
+        <h2 class="secao__titulo" id="jornada-titulo">Uma jornada pela Bíblia, do começo ao fim</h2>
+        <p class="secao__intro">As páginas seguem a ordem da Bíblia. A cada desenho, seu filho dá mais um passo na história da salvação e entende como tudo se encaixa, da Criação até Jesus.</p>
+        <div class="trilha-legenda" aria-hidden="true"><span class="-at">Antigo Testamento</span><span class="-nt">Novo Testamento</span></div>
+        <ol class="limpa trilha">
+            <li class="parada -at"><b>Criação do Mundo</b><span>Gênesis 1</span></li>
+            <li class="parada -at"><b>Arca de Noé</b><span>Gênesis 6</span></li>
+            <li class="parada -at"><b>Abraão e as estrelas</b><span>Gênesis 15</span></li>
+            <li class="parada -at"><b>José do Egito</b><span>Gênesis 37</span></li>
+            <li class="parada -at"><b>Moisés e o Mar Vermelho</b><span>Êxodo 14</span></li>
+            <li class="parada -at"><b>Os Dez Mandamentos</b><span>Êxodo 34</span></li>
+            <li class="parada -her"><b>Davi e Golias</b><span>1 Samuel 17</span></li>
+            <li class="parada -her"><b>Daniel na cova dos leões</b><span>Daniel 6</span></li>
+            <li class="parada -nt"><b>O nascimento de Jesus</b><span>Lucas 2</span></li>
+            <li class="parada -mil"><b>Os milagres de Jesus</b><span>Evangelhos</span></li>
+            <li class="parada -nt"><b>A Última Ceia</b><span>Lucas 22</span></li>
+            <li class="parada -nt"><b>A Ressurreição</b><span>Mateus 28</span></li>
+        </ol>
+        <p class="jornada__nota">Algumas das paradas da jornada. Ao final, a criança recebe o Diploma de Pequeno Discípulo.</p>
+      </div>
+    </section>
+
+    <!-- ============ HOJE x DEPOIS (promessas) ============ -->
+    <section class="secao" aria-labelledby="muda-titulo" style="padding-top:0">
+      <div class="container">
+        <h2 class="secao__titulo" id="muda-titulo">O que muda quando a tela dá lugar à Bíblia</h2>
+        <div class="antes-depois">
+          <div class="lado -hoje">
+            <h3>Hoje</h3>
+            <ul class="limpa">
+              <li>Birra todo dia na hora de desligar</li>
+              <li>Jantar em silêncio, cada um na sua tela</li>
+              <li>A fé fica só para o domingo</li>
+              <li>Você termina o dia com culpa</li>
+              <li>Irmãos disputando quem fica com o celular</li>
+            </ul>
+          </div>
+          <div class="lado -depois">
+            <h3>Com as páginas</h3>
+            <ul class="limpa">
+              <li>Pintar vira o momento preferido do dia</li>
+              <li>Uma conversa sobre Deus, todos os dias</li>
+              <li>Seu filho entende a Bíblia em ordem, do Gênesis a Jesus</li>
+              <li>Seu filho conta as histórias da Bíblia para você</li>
+              <li>Você sabe exatamente o que oferecer no lugar da tela</li>
+              <li>A hora de dormir fica mais calma, com uma história no lugar do vídeo</li>
+              <li>Irmãos pintando juntos, em vez de brigando pelo celular</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COMO FUNCIONA (sequência) ============ -->
+    <section class="secao" aria-labelledby="como-titulo" style="padding-top:0">
+      <div class="container">
+        <h2 class="secao__titulo" id="como-titulo">Uma página por dia. Uma conversa por dia.</h2>
+        <ol class="limpa passos">
+          <li class="passo"><span class="passo__num" aria-hidden="true">1</span>
+            <div><h3>Entre na área de membros</h3><p>Logo depois da compra, você recebe o acesso por e-mail. Funciona no navegador do celular, sem instalar aplicativo.</p></div></li>
+          <li class="passo"><span class="passo__num" aria-hidden="true">2</span>
+            <div><h3>Imprima ou abra no celular</h3><p>Pinte no papel, em folha A4 comum, ou direto na tela com o dedo. Quantas vezes quiser.</p></div></li>
+          <li class="passo"><span class="passo__num" aria-hidden="true">3</span>
+            <div><h3>Siga a jornada</h3><p>Uma página por dia, na ordem da Bíblia. Enquanto a criança colore, você lê a história e faz a pergunta da página.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ DUAS FORMAS DE PINTAR ============ -->
+    <section class="secao" aria-labelledby="formas-titulo" style="padding-top:0">
+      <div class="container">
+        <h2 class="secao__titulo" id="formas-titulo">Duas formas de pintar. Você escolhe a do dia.</h2>
+        <div class="formas">
+          <article class="forma -papel">
+            <div class="forma__visual folhas" aria-hidden="true">
+              <img src="img/paginas/nova-paes-e-peixes-720.webp" width="524" height="720" loading="lazy" decoding="async" alt="">
+              <img src="img/paginas/nova-pesca-milagrosa-720.webp" width="720" height="678" loading="lazy" decoding="async" alt="">
+              <img src="img/paginas/nova-tempestade-acalmada-720.webp" width="720" height="711" loading="lazy" decoding="async" alt="">
+              <svg class="folhas__giz" viewBox="0 0 34 64"><path d="M9 21 17 3l8 18z" fill="#E53935" stroke="#3A2A1E" stroke-width="2.5" stroke-linejoin="round"/><rect x="7" y="20" width="20" height="42" rx="3" fill="#E53935" stroke="#3A2A1E" stroke-width="2.5"/><rect x="7" y="31" width="20" height="15" fill="#fff" fill-opacity=".8" stroke="#3A2A1E" stroke-width="2"/></svg>
+              <svg class="folhas__giz -dois" viewBox="0 0 34 64"><path d="M9 21 17 3l8 18z" fill="#1E66D0" stroke="#3A2A1E" stroke-width="2.5" stroke-linejoin="round"/><rect x="7" y="20" width="20" height="42" rx="3" fill="#1E66D0" stroke="#3A2A1E" stroke-width="2.5"/><rect x="7" y="31" width="20" height="15" fill="#fff" fill-opacity=".8" stroke="#3A2A1E" stroke-width="2"/></svg>
+            </div>
+            <h3>No papel</h3>
+            <p>Imprima em casa ou na papelaria e pinte com lápis de cor, giz de cera ou canetinha. É a opção para a mesa da cozinha, a catequese e o fim de semana.</p>
+          </article>
+          <article class="forma -celular">
+            <div class="forma__visual aparelho" aria-hidden="true">
+              <div class="aparelho__tela"><img src="img/celular-pintando.webp" width="520" height="664" loading="lazy" decoding="async" alt=""></div>
+            </div>
+            <h3>No celular</h3>
+            <p>Abra a página na área de membros, escolha a cor e toque no desenho. Serve para a sala de espera, a viagem de carro ou o dia sem impressora. A tela vira uma história da Bíblia, não um vídeo sem fim.</p>
+          </article>
+        </div>
+        <p class="formas__nota">Você testou a pintura no celular lá no começo desta página. É assim que funciona na área de membros.</p>
+      </div>
+    </section>
+
+    <!-- ============ GALERIA ============ -->
+    <section class="secao" aria-labelledby="galeria-titulo" style="padding-top:0">
+      <div class="container">
+        <div class="galeria-topo">
+          <div>
+            <h2 class="secao__titulo" id="galeria-titulo">Veja algumas paradas da jornada</h2>
+            <p class="secao__intro">Do Antigo ao Novo Testamento, passando pelos heróis da fé e pelos milagres de Jesus.</p>
+          </div>
+          <div class="galeria-setas">
+            <button class="btn btn--leve" type="button" data-galeria="esq" aria-label="Ver páginas anteriores"><svg class="icone"><use href="#i-esq"/></svg></button>
+            <button class="btn btn--leve" type="button" data-galeria="dir" aria-label="Ver mais páginas"><svg class="icone"><use href="#i-dir"/></svg></button>
+          </div>
+        </div>
+        <ul class="limpa galeria" id="galeria" tabindex="0" aria-label="Páginas de exemplo">
+          <li><figure class="figura"><img src="img/paginas/g-mar-vermelho-400.webp" srcset="img/paginas/g-mar-vermelho-400.webp 400w, img/paginas/g-mar-vermelho-640.webp 640w" sizes="(min-width: 1100px) 260px, (min-width: 760px) 30vw, 70vw" width="640" height="453" loading="lazy" decoding="async" alt="Desenho para colorir: O Mar Vermelho se Abre">
+            <figcaption><b>O Mar Vermelho se Abre</b><span class="ref -at">Êxodo 14:21</span></figcaption></figure></li>
+          <li><figure class="figura"><img src="img/paginas/g-jesus-e-as-criancas-400.webp" srcset="img/paginas/g-jesus-e-as-criancas-400.webp 400w, img/paginas/g-jesus-e-as-criancas-640.webp 640w" sizes="(min-width: 1100px) 260px, (min-width: 760px) 30vw, 70vw" width="640" height="410" loading="lazy" decoding="async" alt="Desenho para colorir: Jesus Abençoa as Crianças">
+            <figcaption><b>Jesus Abençoa as Crianças</b><span class="ref -nt">Marcos 10:14</span></figcaption></figure></li>
+          <li><figure class="figura"><img src="img/paginas/g-paes-e-peixes-400.webp" srcset="img/paginas/g-paes-e-peixes-400.webp 400w, img/paginas/g-paes-e-peixes-640.webp 640w" sizes="(min-width: 1100px) 260px, (min-width: 760px) 30vw, 70vw" width="466" height="640" loading="lazy" decoding="async" alt="Desenho para colorir: A Multiplicação dos Pães e Peixes">
+            <figcaption><b>A Multiplicação dos Pães e Peixes</b><span class="ref -mil">Mateus 14:19</span></figcaption></figure></li>
+          <li><figure class="figura"><img src="img/paginas/g-tempestade-acalmada-400.webp" srcset="img/paginas/g-tempestade-acalmada-400.webp 400w, img/paginas/g-tempestade-acalmada-640.webp 640w" sizes="(min-width: 1100px) 260px, (min-width: 760px) 30vw, 70vw" width="640" height="632" loading="lazy" decoding="async" alt="Desenho para colorir: Jesus Acalma a Tempestade">
+            <figcaption><b>Jesus Acalma a Tempestade</b><span class="ref -mil">Marcos 4:39</span></figcaption></figure></li>
+          <li><figure class="figura"><img src="img/paginas/g-pesca-milagrosa-400.webp" srcset="img/paginas/g-pesca-milagrosa-400.webp 400w, img/paginas/g-pesca-milagrosa-640.webp 640w" sizes="(min-width: 1100px) 260px, (min-width: 760px) 30vw, 70vw" width="640" height="603" loading="lazy" decoding="async" alt="Desenho para colorir: A Pesca Milagrosa">
+            <figcaption><b>A Pesca Milagrosa</b><span class="ref -mil">Lucas 5:6</span></figcaption></figure></li>
+          <li><figure class="figura"><img src="img/paginas/g-ressurreicao-de-lazaro-400.webp" srcset="img/paginas/g-ressurreicao-de-lazaro-400.webp 400w, img/paginas/g-ressurreicao-de-lazaro-640.webp 640w" sizes="(min-width: 1100px) 260px, (min-width: 760px) 30vw, 70vw" width="640" height="605" loading="lazy" decoding="async" alt="Desenho para colorir: A Ressurreição de Lázaro">
+            <figcaption><b>A Ressurreição de Lázaro</b><span class="ref -mil">João 11:43</span></figcaption></figure></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ DIFERENCIAL: A PERGUNTA ============ -->
+    <section class="secao" aria-labelledby="pergunta-titulo" style="padding-top:0">
+      <div class="container pergunta__grade">
+        <article class="cartao" aria-label="Exemplo de página">
+          <img src="img/paginas/nova-paes-e-peixes-720.webp" width="524" height="720" loading="lazy" decoding="async" alt="Desenho para colorir: a Multiplicação dos Pães e Peixes">
+          <div class="cartao__corpo">
+            <h3>A Multiplicação dos Pães e Peixes</h3>
+            <span class="ref -mil">Mateus 14:19</span>
+            <p>Jesus multiplicou 5 pães e 2 peixes para alimentar milhares de pessoas.</p>
+            <p class="cartao__conversa"><svg class="icone"><use href="#i-chat"/></svg><span>Converse: Deus pode fazer muito com pouco.</span></p>
+          </div>
+        </article>
+        <div>
+          <h2 class="secao__titulo" id="pergunta-titulo">Catequese em casa, uma página por dia</h2>
+          <p class="secao__intro">Você não precisa saber explicar a Bíblia. Cada página já vem com tudo pronto para ensinar a fé, mesmo que você nunca tenha dado uma aula de catequese.</p>
+          <ul class="limpa lista-check">
+            <li><svg class="icone"><use href="#i-check"/></svg><span>A referência bíblica, para ler a passagem junto</span></li>
+            <li><svg class="icone"><use href="#i-check"/></svg><span>Um resumo da história em linguagem de criança</span></li>
+            <li><svg class="icone"><use href="#i-check"/></svg><span>Uma pergunta para conversar enquanto ela pinta</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OBJEÇÕES ============ -->
+    <section class="secao" aria-labelledby="duvidas-titulo" style="padding-top:0">
+      <div class="container">
+        <h2 class="secao__titulo" id="duvidas-titulo">“Mas aqui em casa…”</h2>
+        <ul class="limpa duvidas-reais">
+          <li class="duvida"><h3>“Meu filho só quer saber de vídeo.”</h3>
+            <p>Colorir é uma atividade com as mãos, com começo e fim. A criança vê o resultado na hora e quer mostrar para você. Comece com uma página curta e faça junto.</p></li>
+          <li class="duvida"><h3>“Não tenho tempo.”</h3>
+            <p>Uma página por dia é suficiente. Enquanto ela pinta, você faz a pergunta da página. Dá para fazer até enquanto prepara o jantar.</p></li>
+          <li class="duvida"><h3>“Não tenho impressora.”</h3>
+            <p>Não precisa. A criança pode pintar direto no celular, com o dedo. E, quando quiser o papel, qualquer papelaria imprime o PDF.</p></li>
+          <li class="duvida"><h3>“Serve para a catequese?”</h3>
+            <p>Sim. São histórias da Bíblia contadas de forma simples, boas para a catequese, a escola dominical e o culto infantil.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ PARA QUEM É ============ -->
+    <section class="secao" aria-labelledby="quem-titulo" style="padding-top:0">
+      <div class="container">
+        <h2 class="secao__titulo" id="quem-titulo">Feito para quem quer criar filhos perto de Deus</h2>
+        <ul class="limpa quem">
+          <li><svg class="icone"><use href="#i-casa"/></svg><b>Mães e pais</b><span>Que querem trocar a tela por um momento juntos.</span></li>
+          <li><svg class="icone"><use href="#i-coracao"/></svg><b>Avós</b><span>Uma atividade pronta para quando os netos visitam.</span></li>
+          <li><svg class="icone"><use href="#i-igreja"/></svg><b>Catequistas</b><span>Uma história e uma pergunta para cada encontro.</span></li>
+          <li><svg class="icone"><use href="#i-livro"/></svg><b>Escola dominical</b><span>Material simples para o culto infantil.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ DEPOIMENTOS (só aparece com depoimentos reais em config.js) ============ -->
+    <section class="secao" id="depoimentos" aria-labelledby="depo-titulo" style="padding-top:0" hidden>
+      <div class="container">
+        <h2 class="secao__titulo" id="depo-titulo">O que as famílias estão dizendo</h2>
+        <ul class="limpa depoimentos" id="depoimentos-lista"></ul>
+      </div>
+    </section>
+
+    <div class="onda" aria-hidden="true"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 30 C 240 0 480 60 720 30 S 1200 0 1440 30 V60 H0 Z" fill="#FFC933"/></svg></div>
+    <!-- ============ OFERTA ============ -->
+    <section class="secao oferta" id="oferta" aria-labelledby="oferta-titulo">
+      <div class="container">
+        <div class="oferta__caixa">
+          <h2 id="oferta-titulo">Tudo o que você recebe hoje</h2>
+          <ul class="limpa oferta__lista">
+            <li><svg class="icone"><use href="#i-check"/></svg><span><b>A jornada completa pela Bíblia</b>, em ordem, da Criação à Ressurreição de Jesus, em PDF pronto para imprimir</span></li>
+            <li><svg class="icone"><use href="#i-check"/></svg><span><b>Pintura direto no celular</b>: a criança escolhe a cor e pinta com o dedo, sem impressora e sem bagunça</span></li>
+            <li><svg class="icone"><use href="#i-check"/></svg><span><b>Uma pergunta pronta em cada página</b>, para a conversa sobre Deus acontecer sem você precisar preparar nada</span></li>
+            <li><svg class="icone"><use href="#i-check"/></svg><span><b>Área de membros no celular</b>, onde a criança marca cada página colorida e vê o progresso</span></li>
+            <li><svg class="icone"><use href="#i-check"/></svg><span><b>Diploma de Pequeno Discípulo</b> para entregar quando ela terminar todas as páginas</span></li>
+            <li><svg class="icone"><use href="#i-check"/></svg><span>Imprima quantas vezes quiser, para irmãos, primos e a turma da catequese</span></li>
+            <li><svg class="icone"><use href="#i-check"/></svg><span>Acesso imediato, pagamento único e sem mensalidade</span></li>
+          </ul>
+          <div class="preco">
+            <span class="preco__de" data-oferta="precoDe">R$ 47,00</span>
+            <span class="preco__por" data-oferta="precoPor">R$ 19,90</span>
+            <span class="preco__parc" data-oferta="parcelamento">ou até 3x no cartão</span>
+            <span class="preco__unidade" id="preco-unidade" hidden></span>
+          </div>
+          <a class="btn btn--comprar btn--bloco" href="#" data-checkout>Quero começar a jornada</a>
+          <p class="cta-nota"><svg class="icone"><use href="#i-cadeado"/></svg>Pagamento seguro e acesso imediato por e-mail</p>
+          <div class="selo">
+            <svg viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="40" r="36" fill="#FFC933" stroke="#3A2A1E" stroke-width="3"/>
+              <circle cx="40" cy="40" r="28" fill="none" stroke="#3A2A1E" stroke-width="2" stroke-dasharray="3 4"/>
+              <path d="m28 41 8 8 16-17" fill="none" stroke="#3A2A1E" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p><b>Teste por <span data-oferta="garantiaDias">7</span> dias, sem risco.</b> Imprima, pinte com seu filho e veja a diferença. Se não gostar, peça o reembolso e devolvemos 100% do valor, sem perguntas. O risco é todo nosso.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="secao" aria-labelledby="faq-titulo">
+      <div class="container">
+        <h2 class="secao__titulo" id="faq-titulo">Perguntas frequentes</h2>
+        <div class="faq">
+          <details><summary>Como eu recebo os desenhos?</summary>
+            <p>Assim que o pagamento é aprovado, você recebe por e-mail o acesso à área de membros. Lá estão todos os PDFs para baixar no celular ou no computador.</p></details>
+          <details><summary>Em que ordem são as páginas?</summary>
+            <p>Na ordem da Bíblia. A primeira é a Criação do Mundo, depois vêm Noé, Abraão, José, Moisés, os juízes, os reis e os profetas, e então a vida de Jesus, até a Ressurreição. Assim a criança aprende a história da salvação do começo ao fim.</p></details>
+          <details><summary>Para qual idade é?</summary>
+            <p>Para crianças a partir dos 3 anos, com a ajuda de um adulto. As crianças maiores conseguem ler o resumo e a pergunta sozinhas.</p></details>
+          <details><summary>Serve para católicos e evangélicos?</summary>
+            <p>Sim. São histórias da Bíblia conhecidas por todos os cristãos, como a Arca de Noé, Davi e Golias e a Multiplicação dos Pães.</p></details>
+          <details><summary>Preciso de impressora?</summary>
+            <p>Não. Dá para pintar direto no celular, na área de membros. Se preferir o papel, é só imprimir o PDF em casa ou numa papelaria.</p></details>
+          <details><summary>Posso imprimir mais de uma vez?</summary>
+            <p>Pode. Imprima quantas vezes quiser para usar em família, e de novo quando a criança quiser pintar outra vez.</p></details>
+          <details><summary>Preciso pagar mensalidade?</summary>
+            <p>Não. O pagamento é único e o acesso é seu.</p></details>
+          <details><summary>E se eu não gostar?</summary>
+            <p>Você tem <span data-oferta="garantiaDias">7</span> dias de garantia. Peça o reembolso pelo e-mail de suporte e devolvemos todo o valor.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FECHAMENTO: a escolha ============ -->
+    <section class="secao fechamento" aria-labelledby="fim-titulo" style="padding-top:0">
+      <div class="container">
+        <h2 class="secao__titulo" id="fim-titulo">Hoje à noite, você tem duas opções.</h2>
+        <div class="escolha">
+          <div class="escolha__item -nao">
+            <p>Devolver o celular para ter paz, mais uma vez, e deixar a conversa sobre Deus para depois.</p>
+          </div>
+          <div class="escolha__item -sim">
+            <p>Imprimir a primeira página, a Criação do Mundo, sentar ao lado do seu filho e começar a jornada pela Bíblia juntos.</p>
+          </div>
+        </div>
+        <a class="btn btn--comprar" href="#oferta" data-checkout>Quero começar hoje</a>
+        <p class="cta-nota"><svg class="icone"><use href="#i-cadeado"/></svg>Pagamento seguro e acesso imediato por e-mail</p>
+        <p class="secao__intro">Seu filho vai lembrar das tardes atravessando a Bíblia com você, do Gênesis à Ressurreição. As horas de vídeo, ele esquece.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <nav aria-label="Links do rodapé">
+        <a href="privacidade.html">Política de privacidade</a>
+        <a href="termos.html">Termos de uso</a>
+        <a href="/area-de-membros/login.html" data-area-membros>Área de membros</a>
+      </nav>
+      <!-- TODO: e-mail de suporte, CNPJ/CPF do responsável (exigido pelas plataformas de anúncio). -->
+      <p>© <span data-produto-nome>Nome do Produto</span>. Este site não é afiliado ao Facebook nem à Meta.</p>
+    </div>
+  </footer>
+
+  <div class="barra" id="barra" aria-hidden="true">
+    <div class="barra__preco"><b data-oferta="precoPor">R$ 19,90</b><span>pagamento único</span></div>
+    <a class="btn btn--comprar" href="#" data-checkout tabindex="-1">Quero agora</a>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/rastreio.js"></script>
+  <script src="js/landing.js" defer></script>
+</body>
+</html>

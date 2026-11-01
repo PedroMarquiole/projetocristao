@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Logo">
+  <!-- Para trocar o símbolo: substitua este arquivo. Mantenha viewBox 0 0 64 64. -->
+  <circle cx="32" cy="32" r="32" fill="#FFC933"/>
+  <g fill="none" stroke="#3A2A1E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="32" r="10"/>
+    <line x1="47.0" y1="32.0" x2="53.0" y2="32.0"/><line x1="42.6" y1="42.6" x2="46.8" y2="46.8"/><line x1="32.0" y1="47.0" x2="32.0" y2="53.0"/><line x1="21.4" y1="42.6" x2="17.2" y2="46.8"/><line x1="17.0" y1="32.0" x2="11.0" y2="32.0"/><line x1="21.4" y1="21.4" x2="17.2" y2="17.2"/><line x1="32.0" y1="17.0" x2="32.0" y2="11.0"/><line x1="42.6" y1="21.4" x2="46.8" y2="17.2"/>
+    <path d="M28 34.5 Q32 38.5 36 34.5"/>
+  </g>
+  <circle cx="28.3" cy="30" r="1.5" fill="#3A2A1E"/><circle cx="35.7" cy="30" r="1.5" fill="#3A2A1E"/>
+</svg>

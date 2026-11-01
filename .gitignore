@@ -1,0 +1,7 @@
+*.zip
+__pycache__/
+.DS_Store
+.vercel
+.env
+.env.*
+node_modules/

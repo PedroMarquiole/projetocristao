@@ -1,0 +1,5 @@
+realesrgan-x4plus-anime.param / .bin
+Modelo Real-ESRGAN (x4, anime/line art) no formato ncnn, usado por tools/separar_paineis.py
+para ampliar os desenhos com nitidez.
+Origem: https://github.com/xinntao/Real-ESRGAN (release v0.2.5.0, realesrgan-ncnn-vulkan)
+Licença: BSD-3-Clause (Xintao Wang). Requer: pip install ncnn
