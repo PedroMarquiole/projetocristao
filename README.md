@@ -52,6 +52,10 @@ Os links "Já comprei" e "Área de membros" apontam para `../area-de-membros/log
 Veja `.env.example`. As obrigatórias para cobrar de verdade: `GATEWAY_SECRET_KEY` e `GATEWAY_USER_AGENT`.
 Recomendadas: `GATEWAY_WEBHOOK_TOKEN` e `GATEWAY_OFFER_SLUG`. Sem `GATEWAY_SECRET_KEY` o checkout roda em modo demonstração.
 
+### Conferir se deu certo
+Depois de cadastrar as variáveis e fazer o deploy, abra `https://SEU-DOMINIO/api/saude`. A página mostra se o site está em modo
+**real** ou **demonstração** e quais variáveis faltam (só "sim/não", nunca os valores).
+
 ### Webhook
 A BuckPay envia os eventos `transaction.created` e `transaction.processed` para `https://SEU-DOMINIO/api/webhook?t=<GATEWAY_WEBHOOK_TOKEN>`.
 Esse endereço é enviado a cada cobrança (campo `postbackUrl`). Como a BuckPay não assina as notificações, o webhook exige a senha na URL
