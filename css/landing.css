@@ -523,7 +523,8 @@ a, button, summary, input, .giz, canvas { touch-action: manipulation; -webkit-ta
 .historias .jogo-img { background: var(--branco); }
 
 /* ---------- Histórias: azul-céu suave ---------- */
-.historias { background: #DCEEFA; border-block: var(--borda); }
+.historias { background: #DCEEFA; }
+.onda + .historias { margin-top: -1px; }
 .historias .livro { box-shadow: 6px 7px 0 rgba(21, 101, 192, .35); }
 .historias .ritual li:nth-child(1) { background: #fff; }
 .historias .ritual li:nth-child(2) { background: #FFF1D0; }
