@@ -518,3 +518,7 @@ a, button, summary, input, .giz, canvas { touch-action: manipulation; -webkit-ta
 .mc.-par { border-color: var(--verde); box-shadow: 0 0 0 2px var(--verde); }
 .jogo-img figcaption { font-size: 1rem; line-height: 1.4; max-width: 46ch; }
 .jogo-img figcaption b { font-family: var(--fonte-titulo); color: #6A3FA0; font-size: 1.15rem; }
+.ritual { grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 760px) { .ritual { grid-template-columns: repeat(4, 1fr); } }
+.historias .jogo-img { margin-top: 22px; }
+.historias .jogo-img { background: var(--branco); }
