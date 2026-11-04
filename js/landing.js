@@ -301,9 +301,9 @@
     var v = parseFloat(String(OFERTA.precoPor).replace(/[^0-9,]/g, "").replace(",", "."));
     if (!v || !OFERTA.totalPaginas) return;
     var unid = v / OFERTA.totalPaginas;
-    // Arredonda para cima (sem revelar a quantidade exata de desenhos).
-    var teto = unid < 1 ? "R$ 1" : (Math.ceil(unid)).toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 });
-    el.textContent = "Menos de " + teto + " por desenho";
+    // Arredonda para cima, de 5 em 5 centavos (R$ 19,90 / 37 = R$ 0,537 -> "menos de R$ 0,55").
+    var teto = (Math.ceil(unid * 20) / 20).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+    el.textContent = "Menos de " + teto + " por história";
     el.hidden = false;
   }
 

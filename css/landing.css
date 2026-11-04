@@ -570,3 +570,28 @@ a, button, summary, input, .giz, canvas { touch-action: manipulation; -webkit-ta
 .demo__dica { gap: 6px; padding: 6px 12px; font-size: .8rem; opacity: .92; }
 .demo__dica .icone { width: 1.1em; height: 1.1em; }
 .demo__dica { white-space: nowrap; width: max-content; line-height: 1.2; top: 52%; }
+
+/* ---------- Jornada em 4 partes, comparação e blocos novos ---------- */
+.quatro__rotulo { margin-top: 20px; font-family: var(--fonte-titulo); font-weight: 700; color: var(--texto-suave); }
+.hero .quatro { margin-top: 8px; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.hero .quatro li { padding: 10px 8px; }
+.hero .quatro b { font-size: 1.05rem; }
+.hero .quatro span { font-size: .8rem; }
+@media (min-width: 760px) { .hero .quatro { grid-template-columns: repeat(4, 1fr); } }
+.sub-titulo { font-family: var(--fonte-titulo); font-size: clamp(1.4rem, 5vw, 1.9rem); margin-top: 44px; }
+.compara { width: 100%; margin-top: 24px; border-collapse: separate; border-spacing: 0; background: var(--branco); border: 2px solid var(--texto); border-radius: 18px; overflow: hidden; font-size: .95rem; }
+.compara th, .compara td { padding: 11px 8px; text-align: center; border-bottom: 1px solid rgba(58, 42, 30, .12); line-height: 1.25; }
+.compara tbody tr:last-child th, .compara tbody tr:last-child td { border-bottom: 0; }
+.compara thead th { font-family: var(--fonte-titulo); font-size: .88rem; background: #f3ece0; width: 26%; }
+.compara thead th.-nos { background: var(--sol); }
+.compara tbody th { text-align: left; font-weight: 700; padding-left: 12px; width: 48%; }
+.compara td.-nao { color: var(--texto-suave); }
+.compara td.-sim { background: var(--verde-claro); }
+.compara td.-sim .icone { width: 1.4em; height: 1.4em; margin: auto; color: var(--verde); stroke-width: 3; }
+.dias { margin-top: 22px; padding: 14px 16px; background: var(--azul-claro); border-radius: 14px; font-size: 1.05rem; }
+.jogo .jogo-img { margin-top: 24px; }
+.turma { padding: 22px 18px; background: var(--verde-claro); border: 2px solid var(--texto); border-radius: 20px; }
+.turma h2 { font-size: clamp(1.4rem, 5.2vw, 2rem); margin-bottom: 12px; }
+.hero .quatro__rotulo { font-size: 1rem; margin-top: 18px; }
+.hero .quatro li { font-size: 1rem; }
+.hero .quatro li::before { width: 26px; height: 26px; font-size: .95rem; }
