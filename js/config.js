@@ -32,7 +32,7 @@ const DEPOIMENTOS = [];
 
 /* Rastreamento (deixe vazio até configurar). Veja js/rastreio.js. */
 const RASTREIO = {
-  facebookPixelId: "",   // ex.: "123456789012345"
+  facebookPixelId: "1425833215921005",   // Pixel da Meta (o código fica em js/rastreio.js)
   utmifyPixelId: "",     // ex.: "abc123..." (painel da Utmify)
   // Para onde a pessoa vai ao tocar em "Voltar" no celular (só na página de vendas).
   // "#oferta" leva à oferta da própria página. Pode ser um endereço completo. Vazio desliga.
