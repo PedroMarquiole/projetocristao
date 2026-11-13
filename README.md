@@ -70,3 +70,6 @@ receber a versão nova na hora, sem ficar preso no cache do celular.
 
 ## Acesso à área de membros (sem banco de dados)
 Quando o pagamento é aprovado, `/api/status` devolve uma chave assinada (HMAC, `api/_acesso.js`). O checkout a guarda no navegador e a página de obrigado mostra um link de acesso (`/area-de-membros/login.html?acesso=...`) para entrar em outros aparelhos. As páginas da área só abrem se `/api/acesso` confirmar a chave. Opcional: defina `ACESSO_SEGREDO` na Vercel (qualquer texto longo e secreto); sem ela, a assinatura usa os segredos que já existem. Limite: os arquivos em `/area-de-membros/pdfs` continuam acessíveis por endereço direto.
+
+## Acesso do dono
+Defina `ACESSO_DONO_SENHA` na Vercel (pelo menos 16 caracteres) e abra `/api/acesso-dono?senha=SUA_SENHA`. Sem a variável, a rota fica desligada.
