@@ -105,7 +105,12 @@
       document.head.appendChild(s);
     } else {
       var celular = window.matchMedia("(max-width: 759px)").matches && canvas.getAttribute("data-src-celular");
-      foto.src = celular || canvas.getAttribute("data-src");
+      var carregar = function () { if (!foto.src) foto.src = celular || canvas.getAttribute("data-src"); };
+      // Só baixa o desenho da amostra quando ela estiver chegando na tela (página abre mais rápido no 4G).
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { io.disconnect(); carregar(); } }, { rootMargin: "800px 0px" });
+        io.observe(canvas);
+      } else carregar();
     }
 
     var LINHA = 150;  // abaixo disso é traço do desenho (não pinta)
